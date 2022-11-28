@@ -1,6 +1,6 @@
 # some basic datatypes in python
 a = 20;
-print(str(type(a)));
+print((type(a)));
 
 b = 30.00;
 print(type(b));
