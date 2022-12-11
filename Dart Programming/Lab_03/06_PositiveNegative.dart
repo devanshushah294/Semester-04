@@ -10,12 +10,14 @@ void main(List<String> args) {
   int sumOfEvenNumbers = 0;
   while (input != 0) {
     if (input > 0 && input % 2 == 0) {
-      sumOfEvenNumbers + sumOfEvenNumbers + input;
+      sumOfEvenNumbers = sumOfEvenNumbers + input;
     }
     if (input < 0 && input % 2 == 1) {
-      sumOfOddNumbers + sumOfOddNumbers + input;
+      sumOfOddNumbers = sumOfOddNumbers + input;
     }
-    print("Enter the numbers");
+    print("Enter the number : ");
     input = int.parse(stdin.readLineSync()!);
   }
+  print("The sum of odd negative numbers is : ${sumOfOddNumbers}");
+  print("The sum of even positive numbers is : ${sumOfEvenNumbers}");
 }
