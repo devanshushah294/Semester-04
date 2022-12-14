@@ -1,0 +1,22 @@
+Create a class named Candidate with Candidate_ID, Candidate_Name, Candidate_Age, 
+Candidate_Weight and Candidate_Height as data members. Create a method 
+GetCandidateDetails() and DisplayCandidateDetails(). Create a main method to demonstrate 
+the Candidate class.
+Create a class named Bank_Account with Account_No, User_Name, Email, Account_Type, and 
+Account_Balance as data members. Also create a method GetAccountDetails() and 
+DisplayAccountDetails(). Create a main method to demonstrate the Bank_Account class.
+Write a dart code to create a Circle class with area() and perimeter() function to find area and 
+perimeter of the circle.
+Define Time class with hour and minute as data member. Also define addition() method to add 
+two-time objects.
+Create a class named Member having the following members:
+1 - Name
+2 - Age
+3 - Phone number
+4 - Address
+5 - Salary
+It also has a method named printSalary() which prints the salary of the members. Two classes 
+Employee and Manager inherit the Member class. The Employee and Manager classes have 
+data members specialization and department respectively. Now, assign name, age, 
+phone_number, address and salary to an Employee and Manager by making an object of both 
+of these classes and print the same along with specialization and department respectively.
