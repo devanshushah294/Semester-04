@@ -1,0 +1,9 @@
+(Using named parameter, positional parameter, default parameter only)
+Write a dart code to generate a Fibonacci series of N given numbers using this method.
+Write a dart code to accept a number and check whether the number is prime or not. Use 
+method name check (int n). The method returns 1, if the number is prime otherwise, it returns 
+0.
+Write a dart code that calculates area of circle, triangle and square using method overloading.
+Write a dart code to count the number of even or odd numbers from an array of n numbers.
+Write a dart code to accept n numbers in an array. Display the sum of all the numbers which are 
+divisible by either 3 or 5.
