@@ -1,0 +1,13 @@
+write a dart code that prompts the user to enter 5 numbers, stores them in a List, and displays 
+them in increasing order.
+Write a dart code to read 2 lists and return a list that contains only the elements that are 
+common between them.
+Write a dart code that creates a List with the following values: “Delhi”, “Mumbai”, “Bangalore”, 
+“Hyderabad” and “Ahmedabad”. Replace “Ahmedabad” with “Surat” in the above List.
+Write a dart code to create and read a phonebook dictionary.
+Write a dart code to find friends’ details by their name using a dictionary. (Create a local 
+dictionary and search from it using Map<String, Object?> & Model Class).
+Write a dart code to get the current date from the system and format into different date 
+formats. Ex. dd/MM/yyyy, dd-MM-yyyy, dd-MMM-yyyy, dd-MM-yy, dd MMM yyyy, etc.
+Write a dart code to create common date format method in Util Class and access in different 
+classes (with and without inheritance)
