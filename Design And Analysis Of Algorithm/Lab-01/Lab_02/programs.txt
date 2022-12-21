@@ -1,0 +1,5 @@
+wap and measure time of execution(basics of algorithm and mathematics):
+    generate fibonacci series up to n terms using iterative method
+    print array elements(read the elements from file)
+    print the sum of digits of the given number
+implement them using recursion
