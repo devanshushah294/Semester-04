@@ -8,17 +8,17 @@ class ExtraDesign03 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("Extra Design 03")),
+          title: const Center(child: Text("Extra Design 03")),
         ),
         body: Column(
           children: [
-            CustomExpandedWidget(
+            const CustomExpandedWidget(
               color: Colors.red,
             ),
             Expanded(
                 child: Row(
               children: [
-                CustomExpandedWidget(
+                const CustomExpandedWidget(
                   color: Colors.black,
                 ),
                 Expanded(
@@ -26,7 +26,7 @@ class ExtraDesign03 extends StatelessWidget {
                   children: [
                     Expanded(
                         child: Row(
-                      children: [
+                      children: const [
                         CustomExpandedWidget(
                           color: Colors.purple,
                         ),
@@ -37,7 +37,7 @@ class ExtraDesign03 extends StatelessWidget {
                     )),
                     Expanded(
                         child: Row(
-                      children: [
+                      children: const[
                         CustomExpandedWidget(
                           color: Colors.green,
                         ),
@@ -48,14 +48,14 @@ class ExtraDesign03 extends StatelessWidget {
                     ))
                   ],
                 )),
-                CustomExpandedWidget(
+                const CustomExpandedWidget(
                   color: Colors.black,
                 )
               ],
             )),
             Expanded(
                 child: Row(
-              children: [
+              children: const [
                 CustomExpandedWidget(
                   color: Colors.limeAccent,
                 ),
@@ -87,7 +87,7 @@ class ExtraDesign03 extends StatelessWidget {
                           children: [
                             Expanded(
                                 child: Row(
-                              children: [
+                              children: const [
                                 CustomExpandedWidget(
                                   color: Colors.purple,
                                 ),
@@ -96,14 +96,17 @@ class ExtraDesign03 extends StatelessWidget {
                                 ),
                               ],
                             )),
-                            Expanded(child: Row(children: [
-                              CustomExpandedWidget(
-                                color: Colors.green,
-                              ),
-                              CustomExpandedWidget(
-                                color: Colors.pink,
-                              ),
-                            ],)),
+                            Expanded(
+                                child: Row(
+                              children: const [
+                                CustomExpandedWidget(
+                                  color: Colors.green,
+                                ),
+                                CustomExpandedWidget(
+                                  color: Colors.pink,
+                                ),
+                              ],
+                            )),
                           ],
                         ))
                       ],
@@ -111,7 +114,7 @@ class ExtraDesign03 extends StatelessWidget {
                     Expanded(
                         child: Row(
                       children: [
-                        CustomExpandedWidget(
+                        const CustomExpandedWidget(
                           color: Colors.black,
                         ),
                         CustomExpandedWidget(
@@ -121,10 +124,10 @@ class ExtraDesign03 extends StatelessWidget {
                     ))
                   ],
                 )),
-                CustomExpandedWidget(
+                const CustomExpandedWidget(
                   color: Colors.amberAccent,
                 ),
-                CustomExpandedWidget(
+                const CustomExpandedWidget(
                   color: Colors.brown,
                 ),
                 Expanded(
@@ -132,7 +135,7 @@ class ExtraDesign03 extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Row(
-                        children: [
+                        children: const [
                           CustomExpandedWidget(
                             color: Colors.black,
                           ),
@@ -144,7 +147,7 @@ class ExtraDesign03 extends StatelessWidget {
                     ),
                     Expanded(
                       child: Row(
-                        children: [
+                        children: const [
                           CustomExpandedWidget(
                             color: Colors.red,
                           ),
@@ -156,7 +159,7 @@ class ExtraDesign03 extends StatelessWidget {
                     ),
                     Expanded(
                       child: Row(
-                        children: [
+                        children: const [
                           CustomExpandedWidget(
                             color: Colors.black,
                           ),
