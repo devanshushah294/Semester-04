@@ -10,6 +10,6 @@ class ExtraDesign04 extends StatelessWidget {
         appBar: AppBar(
           title: Text("Extra design 04"),
         ),
-        body: const CustomColumnWidget(parts: 3,color: [Colors.red,Colors. blue,Colors.green],));
+        body: const CustomColumnWidget(parts: 3,color: [Colors.red,Colors. blue,Colors.green],flex:[1,2,3]));
   }
 }
