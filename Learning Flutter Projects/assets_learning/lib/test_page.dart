@@ -5,6 +5,11 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text("Hello"),);
+    return const Scaffold(
+      body: Text(
+        "Hello",
+        style: TextStyle(fontFamily: "Roboto"),
+      ),
+    );
   }
 }

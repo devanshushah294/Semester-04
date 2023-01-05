@@ -1,6 +1,8 @@
 import 'package:assets_learning/test_page.dart';
 import 'package:flutter/material.dart';
 
+import 'homepage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Container(
         color: Colors.purple,
-        child: TestPage(),
+        child: Homepage(),
       ),
       theme: ThemeData(primarySwatch: Colors.purple),
     );
