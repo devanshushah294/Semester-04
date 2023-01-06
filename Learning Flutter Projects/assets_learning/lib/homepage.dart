@@ -1,3 +1,4 @@
+import 'package:assets_learning/widgets/roboto_bold_text.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
@@ -24,20 +25,56 @@ class Homepage extends StatelessWidget {
                   Container(
                     color: Colors.white60,
                   ),
-                  Container()
+                  Container(
+                    child: Column(
+                      children: [
+                        Container(child: Image.asset("assets/images/logo.png",width: 250,)),
+                        Container(
+                          margin: EdgeInsets.only(top: 20),
+                          child: RobotoBoldText(
+                            text: "Building future bharat for happy metrimoney ",
+                            size: 25.0,
+                            color: Colors.black,
+                            bgColor: Colors.transparent,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                    margin: EdgeInsets.only(top: 30),
+                  )
                 ],
               )),
           Expanded(
               child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
                   child: Container(
-                child: Center(child: Text("Login", style: TextStyle(fontFamily: "Roboto",color: Colors.white, fontWeight:FontWeight.bold),)),
+                child: Center(
+                    child: Text(
+                  "Login",
+                  style: TextStyle(
+                      fontFamily: "Roboto",
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                )),
                 color: Colors.green,
               )),
               Expanded(
                   child: Container(
-                child: Center(child: Text("Sign Up -> ${Icons.arrow_forward_rounded}", style: TextStyle(fontFamily: "Roboto",color: Colors.white, fontWeight:FontWeight.bold))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Sign Up \u2794",
+                      style: TextStyle(
+                          fontFamily: "Roboto",
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
                 color: Colors.black,
               ))
             ],
