@@ -8,7 +8,8 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Metromony app"),
+        backgroundColor: Colors.deepOrangeAccent,
+        title: const Text("Metromony app"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -23,25 +24,46 @@ class Homepage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   Container(
-                    color: Colors.white60,
+                    color: Colors.white70,
                   ),
                   Container(
+                    margin: const EdgeInsets.only(top: 30),
                     child: Column(
                       children: [
-                        Container(child: Image.asset("assets/images/logo.png",width: 250,)),
                         Container(
-                          margin: EdgeInsets.only(top: 20),
-                          child: RobotoBoldText(
-                            text: "Building future bharat for happy metrimoney ",
+                          margin: const EdgeInsets.only(top: 20),
+                          child: Image.asset(
+                            "assets/images/logo.png",
+                            width: 250,
+                          ),
+                        ),
+                        Container(
+                          alignment: Alignment.topRight,
+                          margin: const EdgeInsets.only(top: 10, right: 70),
+                          child: const RobotoBoldText(
+                            text: "Unlock your love",
                             size: 25.0,
-                            color: Colors.black,
+                            color: Colors.deepOrangeAccent,
                             bgColor: Colors.transparent,
                             textAlign: TextAlign.center,
                           ),
                         ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(top: 100,),
+                                width: 150,
+                                height: 100,
+                                transform: Matrix4.rotationZ(-1*15*3.14/180),
+                                child: Column(children: [],),
+                                color: Colors.orange,
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
-                    margin: EdgeInsets.only(top: 30),
                   )
                 ],
               )),
