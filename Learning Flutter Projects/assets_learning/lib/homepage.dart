@@ -1,3 +1,4 @@
+import 'package:assets_learning/loginpage.dart';
 import 'package:assets_learning/widgets/roboto_bold_text.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class Homepage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   Container(
-                    color: Colors.white70,
+                    color: Colors.white54,
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 30),
@@ -37,31 +38,33 @@ class Homepage extends StatelessWidget {
                             width: 250,
                           ),
                         ),
-                        Container(
-                          alignment: Alignment.topRight,
-                          margin: const EdgeInsets.only(top: 10, right: 70),
-                          child: const RobotoBoldText(
-                            text: "Unlock your love",
-                            size: 25.0,
-                            color: Colors.deepOrangeAccent,
-                            bgColor: Colors.transparent,
-                            textAlign: TextAlign.center,
+                        Center(
+                          child: Container(
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.only(top: 10),
+                            child: const RobotoBoldText(
+                              text: "INDIA'S\n MOST  TRUSTED\nMETRIMONY  APP",
+                              size: 25.0,
+                              color: Colors.black,
+                              bgColor: Colors.transparent,
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
-                        Container(
-                          child: Row(
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.only(top: 100,),
-                                width: 150,
-                                height: 100,
-                                transform: Matrix4.rotationZ(-1*15*3.14/180),
-                                child: Column(children: [],),
-                                color: Colors.orange,
-                              ),
-                            ],
-                          ),
-                        ),
+                        //tilted extra images
+                        // Container(
+                        //   margin: const EdgeInsets.only(
+                        //     top: 100,right:250,
+                        //   ),
+                        //   width: 100,
+                        //   transform: Matrix4.rotationZ(-1 * 15 * 3.14 / 180),
+                        //   child: Column(
+                        //     children: [
+                        //       Image.asset("assets/images/couples/couple1.webp")
+                        //     ],
+                        //   ),
+                        //   color: Colors.orangeAccent,
+                        // ),
                       ],
                     ),
                   )
@@ -72,22 +75,32 @@ class Homepage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Expanded(
-                  child: Container(
-                child: Center(
-                    child: Text(
-                  "Login",
-                  style: TextStyle(
-                      fontFamily: "Roboto",
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
-                )),
-                color: Colors.green,
+                  child: InkWell(
+                onTap: () {
+                  // Navigator.of(context)
+                  //     .push(MaterialPageRoute(builder: (context) {
+                  //   return LoginPage();
+                  // }));
+                  Navigator.push(context,MaterialPageRoute(builder: (context)=>const LoginPage()));
+                },
+                child: Container(
+                  color: Colors.green,
+                  child: const Center(
+                      child: Text(
+                    "Login",
+                    style: TextStyle(
+                        fontFamily: "Roboto",
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )),
+                ),
               )),
               Expanded(
                   child: Container(
+                color: Colors.black,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: const [
                     Text(
                       "Sign Up \u2794",
                       style: TextStyle(
@@ -97,7 +110,6 @@ class Homepage extends StatelessWidget {
                     ),
                   ],
                 ),
-                color: Colors.black,
               ))
             ],
           ))

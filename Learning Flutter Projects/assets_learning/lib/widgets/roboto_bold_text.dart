@@ -25,7 +25,9 @@ class RobotoBoldText extends StatelessWidget {
         color: color ?? Colors.black,
         backgroundColor: this.bgColor ?? Colors.transparent,
         fontWeight: FontWeight.bold,
+
       ),
+      textAlign: textAlign??TextAlign.right,
     );
   }
 }

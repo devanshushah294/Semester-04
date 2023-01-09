@@ -1,3 +1,4 @@
+import 'package:assets_learning/loginpage.dart';
 import 'package:assets_learning/test_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Container(
         color: Colors.purple,
-        child: Homepage(),
+        child: LoginPage(),
       ),
       theme: ThemeData(primarySwatch: Colors.purple),
     );
