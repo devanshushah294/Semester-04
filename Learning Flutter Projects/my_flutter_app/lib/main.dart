@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/home_page.dart';
-
+import "package:my_flutter_app/lab-08/check_page.dart";
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: CheckPage(),
     );
   }
 }
