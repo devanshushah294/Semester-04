@@ -1,0 +1,28 @@
+Container - convinence widget - painting,positioning,sizing - child with padding - leaves margin - child,margin,padding,height,width,color,decoration,transform.
+
+pubspec.yaml -flutter includes - created - top of project tree - contains metadata d-f-tooling - YAML human readable - dependencies p,f,i - pname - fversion
+
+less vs ful - static/dynamic nature - depends on changes - setState - update during runtime - have lifecycle - examples
+
+Navigator.push(context, MaterialPageRoute(builder, (context)=>HomePage())); - Navigator.pop(); pushReplacement();
+
+operators - 
+
+datatype - bsnlmd
+
+text - displays string - might break or get in single line - textAlign, style, textDecoration etc
+
+Scaffold - basic material design visual layout - appBar,bottomNavigationBar, floatingActionButton, Drawer, SnackBar,BottomSheet ,body etc
+AppBar - title,leading,actions
+
+textFormField - controller : TextEditingContoller - validator - obscureText tf - obscureingCharacter - "*" - decoration InputDecoration
+
+Row - children in horizontal array- to dislay its child in its full size use Expanded - does not scroll - if linewidgets and want to scroll use ListView
+
+Column - children in vertical array - to dislay its child in its full size use Expanded - does not scroll - if linewidgets and want to scroll use ListView
+
+Stack - overlap several children in simple way - each child is positioned or non- positioned - positioned are wrapped in Positioned widget at least 1 null property 
+- sizes itself to contain all non-positioned ac. to alignment
+
+mainaxisalignment - start - end - center - spaceround - spaceEvenly - spaceBetween
+crossAxixAlignment - start - end - center - stretch - baseline
