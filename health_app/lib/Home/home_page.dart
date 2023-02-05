@@ -1,4 +1,5 @@
 import 'package:animate_icons/animate_icons.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,11 +26,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late TabController _tabController;
   static const List<String> list = <String>["", 'One', 'Two', 'Three', 'Four'];
   String dropdownValue = list.first;
+  var isSpeedDialVisible = true;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    _tabController.addListener(() {
+      if (_tabController == 0) {
+        print(_tabController);
+        setState(() {
+          isSpeedDialVisible = true;
+        });
+      } else {
+        setState(() {
+          print(_tabController);
+          isSpeedDialVisible = false;
+        });
+      }
+    });
   }
 
   void _onItemTapped(int index) {
@@ -40,142 +55,157 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          showUnselectedLabels: true,
-          items: [
-            BottomNavigationBarItem(
-              backgroundColor: Colors.indigo[800],
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.report),
-              label: "Report",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.health_and_safety),
-              label: "Health",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "More",
-            )
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.greenAccent[400],
-          onTap: _onItemTapped,
-        ),
-        body: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Colors.indigo.shade800, Colors.indigo.shade500],
-                ),
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: true,
+        items: [
+          BottomNavigationBarItem(
+            backgroundColor: Colors.indigo[800],
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.report),
+            label: "Report",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.health_and_safety),
+            label: "Health",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "More",
+          )
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.greenAccent[400],
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+      ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color.fromRGBO(9, 30, 77, 1),
+                  Color.fromRGBO(26, 91, 171, 1)
+                ],
               ),
             ),
-            Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 50),
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: TabBar(
-                        labelStyle: const TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 13,
+          ),
+          Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 50),
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: TabBar(
+                      labelStyle: const TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 18,
+                      ),
+                      labelColor: Colors.greenAccent[400],
+                      unselectedLabelColor: Colors.white,
+                      unselectedLabelStyle: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15,
+                      ),
+                      controller: _tabController,
+                      indicatorColor: Colors.greenAccent[400],
+                      indicatorSize: TabBarIndicatorSize.label,
+                      tabs: const <Widget>[
+                        Tab(
+                          child: Text("Today"),
                         ),
-                        labelColor: Colors.greenAccent[400],
-                        unselectedLabelColor: Colors.white,
-                        unselectedLabelStyle: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12,
+                        Tab(
+                          child: Text("Daily"),
                         ),
-                        controller: _tabController,
-                        indicatorColor: Colors.greenAccent[400],
-                        indicatorSize: TabBarIndicatorSize.label,
-                        tabs: const <Widget>[
-                          Tab(
-                            child: Text("Today"),
+                        Tab(
+                          child: Text("Plan"),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      margin: EdgeInsets.only(right: 10),
+                      alignment: Alignment.centerRight,
+                      child: SpeedDial(
+                        visible: isSpeedDialVisible,
+                        useRotationAnimation: true,
+                        spaceBetweenChildren: 2,
+                        spacing: 10,
+                        buttonSize: Size(_dropdownSize, _dropdownSize),
+                        onOpen: () {
+                          this._dropdownSize = 50;
+                          setState(() {});
+                        },
+                        onClose: () {
+                          this._dropdownSize = 40;
+                          setState(() {});
+                        },
+                        overlayOpacity: 0.7,
+                        childrenButtonSize: Size(50, 50),
+                        overlayColor: Colors.black,
+                        backgroundColor: Colors.greenAccent[400],
+                        direction: SpeedDialDirection.down,
+                        activeIcon: Icons.keyboard_arrow_up_sharp,
+                        icon: Icons.keyboard_arrow_down_rounded,
+                        children: [
+                          customSpeedDialChild(
+                            "Achievements",
+                            FontAwesomeIcons.medal,
+                            a: true,
                           ),
-                          Tab(
-                            child: Text("Daily"),
+                          customSpeedDialChild(
+                            "History`",
+                            Icons.access_time_filled,
+                            a: false,
                           ),
-                          Tab(
-                            child: Text("Plan"),
+                          customSpeedDialChild(
+                            a: false,
+                            "Reset",
+                            Icons.delete,
+                          ),
+                          customSpeedDialChild(
+                            "Turn off",
+                            Icons.power_settings_new,
+                            color: Colors.red,
                           )
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        margin: EdgeInsets.only(right: 20),
-                        alignment: Alignment.centerRight,
-                        child: SpeedDial(
-                          spaceBetweenChildren: 2,
-                          spacing: 10,
-                          buttonSize: Size(_dropdownSize, _dropdownSize),
-                          onOpen: () {
-                            this._dropdownSize = 50;
-                            setState(() {});
-                          },
-                          onClose: () {
-                            this._dropdownSize = 40;
-                            setState(() {});
-                          },
-                          overlayOpacity: 0.7,
-                          childrenButtonSize: Size(50, 50),
-                          overlayColor: Colors.black,
-                          backgroundColor: Colors.greenAccent[400],
-                          direction: SpeedDialDirection.down,
-                          // animatedIcon: AnimatedIcons.menu_arrow,
-                          activeIcon: Icons.keyboard_arrow_up_sharp,
-                          icon: Icons.keyboard_arrow_down_rounded,
-                          children: [
-                            customSpeedDialChild(
-                              "Achievements",
-                              FontAwesomeIcons.medal,
-                            ),
-                            customSpeedDialChild(
-                              "History`",
-                              Icons.access_time_filled,
-                            ),
-                            customSpeedDialChild("Reset", Icons.delete),
-                            customSpeedDialChild(
-                              "Turn off",
-                              Icons.power_settings_new,
-                              color: Colors.red,
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                Expanded(
-                  child: Container(
-                    child: TabBarView(
-                      controller: _tabController,
-                      children: const <Widget>[
-                        TodayPage(),
-                        DailyPage(),
-                        PlanPage(),
-                      ],
-                    ),
+                  )
+                ],
+              ),
+              Expanded(
+                child: Container(
+                  // padding: EdgeInsets.only(top: 0),
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: const <Widget>[
+                      TodayPage(),
+                      DailyPage(),
+                      PlanPage(),
+                    ],
                   ),
                 ),
-              ],
-            )
-          ],
-        ));
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
 
-SpeedDialChild customSpeedDialChild(String text, icon, {color}) {
+SpeedDialChild customSpeedDialChild(String text, icon, {color, a}) {
   return SpeedDialChild(
     backgroundColor: color ?? Colors.greenAccent[400],
     child: Icon(icon, color: Colors.white),

@@ -11,6 +11,7 @@ void pivot(int t[], int l)
   {
     k++;
   } while (t[k] < p || k <= p);
+  while ()
 }
 void quicksort(t)
 {

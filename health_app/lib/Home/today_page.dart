@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:health_app/custom_text.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class TodayPage extends StatelessWidget {
+class TodayPage extends StatefulWidget {
   const TodayPage({Key? key}) : super(key: key);
-  final todaysSteps = 5289;
+
+  @override
+  State<TodayPage> createState() => _TodayPageState();
+}
+
+class _TodayPageState extends State<TodayPage> {
+  var todaysSteps = 5800;
+
   final taskSteps = 8000;
 
   @override
@@ -17,34 +24,37 @@ class TodayPage extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.white10,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              margin: const EdgeInsets.only(bottom: 4),
               child: Column(
                 children: [
                   Expanded(
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: CustomText(
-                              text: "${todaysSteps}",
-                              fontSize: 50,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                          Expanded(
-                            flex: 2,
-                            child: Container(),
-                          ),
-                          Expanded(
-                            flex: 1,
-                            child: Container(),
-                          )
-                        ],
-                      ),
-                    ),
                     flex: 3,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: CustomText(
+                            text: "${todaysSteps}",
+                            fontSize: 50.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Container(),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(),
+                        )
+                      ],
+                    ),
                   ),
                   Expanded(
                     child: Container(),
@@ -56,15 +66,15 @@ class TodayPage extends StatelessWidget {
                   )
                 ],
               ),
-              decoration: BoxDecoration(
-                  color: Colors.white10,
-                  borderRadius: BorderRadius.circular(20)),
-              margin: EdgeInsets.only(bottom: 4),
             ),
           ),
           Expanded(
             flex: 1,
             child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white10,
+                borderRadius: BorderRadius.circular(20),
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -76,10 +86,6 @@ class TodayPage extends StatelessWidget {
                   addCircularPercentIndicator(percent: 0.2, days: "f"),
                   addCircularPercentIndicator(percent: 0.2, days: "s")
                 ],
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white10,
-                borderRadius: BorderRadius.circular(20),
               ),
             ),
           ),
