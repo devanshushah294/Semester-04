@@ -111,39 +111,86 @@ class HomePage extends StatelessWidget {
           //   ),
           // ),
           ,
-          ListView(
-            children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  // scrollDirection: Axis.horizontal,
-                  children: [
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                    albumContainer("assets/images/peli.jpg", "text", 7),
-                  ],
+          Expanded(
+            child: ListView(
+              children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    // scrollDirection: Axis.horizontal,
+                    children: [
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                      albumContainer("assets/images/peli.jpg", "text", 7),
+                    ],
+                  ),
                 ),
-              ),
-              Container(
-                color: Colors.red,
-                height: 50,
-              ),
-              Container(
-                color: Colors.red,
-                height: 50,
-              ),
-              Container(
-                color: Colors.red,
-                height: 50,
-              ),
-            ],
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.red,
+                  height: 50,
+                ),
+              ],
+            ),
           ),
         ],
       ),
