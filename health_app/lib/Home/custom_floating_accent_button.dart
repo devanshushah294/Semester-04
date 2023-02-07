@@ -6,8 +6,14 @@ class CustomFloatingAccentButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(floatingActionButton:SpeedDial(
-      children: [SpeedDialChild(child: Icon(Icons.mail),label: "mail"),SpeedDialChild(child: Icon(Icons.access_alarm),label: "alarm"),SpeedDialChild(child: Icon(Icons.copy),label: "copy")],
-    ),);
+    return Scaffold(
+      floatingActionButton: SpeedDial(
+        children: [
+          SpeedDialChild(child: Icon(Icons.mail), label: "mail"),
+          SpeedDialChild(child: Icon(Icons.access_alarm), label: "alarm"),
+          SpeedDialChild(child: Icon(Icons.copy), label: "copy")
+        ],
+      ),
+    );
   }
 }

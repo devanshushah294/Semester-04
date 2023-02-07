@@ -86,7 +86,7 @@ class DailyPage extends StatelessWidget {
                       ),
                       "assets/images/Home/Stretch.png",
                       "Stretch",
-                      90.0),
+                      65.0),
                   needsContainer(
                       LinearGradient(
                         begin: Alignment.topLeft,
@@ -95,7 +95,7 @@ class DailyPage extends StatelessWidget {
                       ),
                       "assets/images/Home/FastWorkout.png",
                       "Warm up",
-                      120.0),
+                      90.0),
                 ],
               ),
               Column(
@@ -122,84 +122,92 @@ class DailyPage extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Container(
             color: Colors.white24,
-            padding: EdgeInsets.only(top: 20),
+            padding: EdgeInsets.only(top: 5),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              // mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  height: 50,
+                  padding: EdgeInsets.all(10),
+                  height: 100,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CustomText(
-                              text: "Hot",
-                              fontSize: 20.0,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.white,
+                            Container(
+                              child: CustomText(
+                                text: "Hot",
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.white,
+                              ),
+                              margin: EdgeInsets.only(top: 15),
                             ),
                             CustomText(
                               text: "12 workouts",
                               fontSize: 10.0,
                               fontWeight: FontWeight.w100,
                               color: Colors.white24,
-                            )
+                            ),
                           ],
                         ),
+                        Container(
+                          child: CircleAvatar(
+                            foregroundImage:AssetImage("assets/images/Home/FastWorkout.png"),
+                            radius: 50,
+                            backgroundColor: Colors.blue,
+                          ),
+                        )
                       ],
                     ),
                   ),
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
                 Container(
                   height: 50,
-                  color: Colors.pink,
-                ),
-                Container(
+                  color: Colors.transparent,
+                ),Container(
                   height: 50,
-                  color: Colors.pink,
-                ),
-                Container(
+                  color: Colors.transparent,
+                ),Container(
                   height: 50,
-                  color: Colors.pink,
-                ),
-                Container(
+                  color: Colors.transparent,
+                ),Container(
                   height: 50,
-                  color: Colors.pink,
-                ),
-                Container(
+                  color: Colors.transparent,
+                ),Container(
                   height: 50,
-                  color: Colors.pink,
+                  color: Colors.transparent,
                 ),
               ],
             ),
@@ -236,12 +244,12 @@ Widget needsContainer(abc, image, text, mp) {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(bottomRight: Radius.circular(10)),
           ),
-          margin: EdgeInsets.only(left: 130, top: 70),
+          margin: EdgeInsets.only(left: 135, top: 70),
           child: ClipPath(
             clipper: CustomClipPath(),
             child: Container(
               height: 30,
-              width: 30,
+              width: 40,
               color: Colors.white38,
             ),
           ),

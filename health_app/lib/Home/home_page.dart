@@ -56,6 +56,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Color.fromRGBO(26, 91, 171, 1),
+
         showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(
