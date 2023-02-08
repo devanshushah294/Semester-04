@@ -29,8 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.indigo,
       ),
-      // home : HomePage()
-
+      home : HomePage()
       // home: Row(
       //   children: <Widget>[
       //     CircularPercentIndicator(
@@ -51,7 +50,7 @@ class MyApp extends StatelessWidget {
       // )
       // home: DailyPage()
       // home: TodayPage(),
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
     );
   }
 }

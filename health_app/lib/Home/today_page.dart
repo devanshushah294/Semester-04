@@ -91,8 +91,8 @@ class _TodayPageState extends State<TodayPage> {
                               margin: EdgeInsets.only(bottom: 15),
                               child: CustomText(
                                 color: Colors.white38,
-                                text: "Daily Average: ",
-                                fontSize: 20.0,
+                                text: "Daily average: ",
+                                fontSize: 16.0,
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -100,7 +100,7 @@ class _TodayPageState extends State<TodayPage> {
                               padding: EdgeInsets.only(bottom: 8),
                               child: CustomText(
                                 text: "${dailyAverage}",
-                                fontSize: 20.0,
+                                fontSize: 16.0,
                                 textAlign: TextAlign.left,
                                 color: Colors.white,
                               ),
@@ -170,11 +170,12 @@ class _TodayPageState extends State<TodayPage> {
 Widget addCircularPercentIndicator({double? percent, required String days}) {
   return CircularPercentIndicator(
     lineWidth: 3.0,
-    radius: 20.0,
+    circularStrokeCap: CircularStrokeCap.round,
+    radius: 15.0,
     // arcType: ArcType.FULL,
     percent: percent ?? 1.0,
     // progressColor: Colors.green[600],
-    progressColor: Colors.green,
+    progressColor: Colors.green.shade500,
     backgroundColor: Colors.indigo.shade400,
     footer: Container(
       padding: EdgeInsets.only(top: 10),

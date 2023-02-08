@@ -195,6 +195,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.red,
         backgroundColor: Colors.grey,
         items: const <BottomNavigationBarItem>[

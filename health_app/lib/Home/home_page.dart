@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late double _dropdownSize = 40;
+  late double _dropdownSize = 50;
   int _selectedIndex = 0;
   late TabController _tabController;
   static const List<String> list = <String>["", 'One', 'Two', 'Three', 'Four'];
@@ -32,19 +32,20 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
-    _tabController.addListener(() {
-      if (_tabController == 0) {
-        print(_tabController);
-        setState(() {
-          isSpeedDialVisible = true;
-        });
-      } else {
-        setState(() {
-          print(_tabController);
-          isSpeedDialVisible = false;
-        });
-      }
-    });
+    _tabController.addListener(
+      () {
+        print(_tabController.index);
+        if (_tabController.index == 0) {
+          setState(() {
+            isSpeedDialVisible = true;
+          });
+        } else {
+          setState(() {
+            isSpeedDialVisible = false;
+          });
+        }
+      },
+    );
   }
 
   void _onItemTapped(int index) {
@@ -57,7 +58,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color.fromRGBO(26, 91, 171, 1),
-
         showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(
@@ -66,7 +66,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.report),
+            icon: Icon(
+              Icons.report,
+            ),
             label: "Report",
           ),
           BottomNavigationBarItem(
@@ -92,7 +94,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 end: Alignment.bottomCenter,
                 colors: [
                   Color.fromRGBO(9, 30, 77, 1),
-                  Color.fromRGBO(26, 91, 171, 1)
+                  Color.fromRGBO(22, 82, 155, 1)
                 ],
               ),
             ),
@@ -100,7 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 30),
               ),
               Row(
                 children: [
@@ -120,6 +122,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       controller: _tabController,
                       indicatorColor: Colors.greenAccent[400],
                       indicatorSize: TabBarIndicatorSize.label,
+                      indicatorPadding: EdgeInsets.all(10),
                       tabs: const <Widget>[
                         Tab(
                           child: Text("Today"),
@@ -136,29 +139,34 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   Expanded(
                     flex: 2,
                     child: Container(
-                      margin: EdgeInsets.only(right: 10),
+                      margin: EdgeInsets.only(top: 10, right: 10),
                       alignment: Alignment.centerRight,
                       child: SpeedDial(
+                        // renderOverlay: false,
                         visible: isSpeedDialVisible,
                         useRotationAnimation: true,
                         spaceBetweenChildren: 2,
                         spacing: 10,
                         buttonSize: Size(_dropdownSize, _dropdownSize),
                         onOpen: () {
-                          this._dropdownSize = 50;
-                          setState(() {});
+                          setState(() {
+                            this._dropdownSize = 50;
+                          });
                         },
                         onClose: () {
-                          this._dropdownSize = 40;
-                          setState(() {});
+                          setState(() {
+                            this._dropdownSize = 50;
+                          });
                         },
+                        switchLabelPosition: false,
                         overlayOpacity: 0.7,
-                        childrenButtonSize: Size(50, 50),
+                        childrenButtonSize: Size(60, 60),
                         overlayColor: Colors.black,
                         backgroundColor: Colors.greenAccent[400],
                         direction: SpeedDialDirection.down,
                         activeIcon: Icons.keyboard_arrow_up_sharp,
                         icon: Icons.keyboard_arrow_down_rounded,
+                        iconTheme: IconThemeData(size: 50),
                         children: [
                           customSpeedDialChild(
                             "Achievements",
@@ -166,7 +174,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             a: true,
                           ),
                           customSpeedDialChild(
-                            "History`",
+                            "History",
                             Icons.access_time_filled,
                             a: false,
                           ),

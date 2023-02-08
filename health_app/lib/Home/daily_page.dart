@@ -115,14 +115,14 @@ class DailyPage extends StatelessWidget {
           ),
         ),
         Container(
-          padding: EdgeInsets.all(5),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
           ),
           clipBehavior: Clip.antiAlias,
           child: Container(
-            color: Colors.white24,
-            padding: EdgeInsets.only(top: 5),
+            color: Colors.white10,
+            // padding: EdgeInsets.only(top: 5),
             child: Column(
               // mainAxisSize: MainAxisSize.max,
               children: [
@@ -130,7 +130,7 @@ class DailyPage extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   height: 100,
                   child: Padding(
-                    padding: const EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -156,9 +156,11 @@ class DailyPage extends StatelessWidget {
                         ),
                         Container(
                           child: CircleAvatar(
-                            foregroundImage:AssetImage("assets/images/Home/FastWorkout.png"),
-                            radius: 50,
-                            backgroundColor: Colors.blue,
+                            maxRadius: 35,
+                            foregroundImage: AssetImage(
+                                "assets/images/Home/FastWorkout.png"),
+                            // radius: 35,
+                            backgroundColor: Color.fromRGBO(9, 30, 77, 1),
                           ),
                         )
                       ],
@@ -166,49 +168,57 @@ class DailyPage extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: 50,
-                  color: Colors.transparent,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.blue),
+                  // child: Column(
+                  //   children: [
+                  //     customRow("abc"),
+                  //     customRow("img"),
+                  //   ],
+                  // ),
+                  child: come(),
                 ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
-                Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),Container(
-                  height: 50,
-                  color: Colors.transparent,
-                ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
+                // Container(
+                //   height: 50,
+                //   color: Colors.transparent,
+                // ),
               ],
             ),
           ),
@@ -296,4 +306,36 @@ class CustomClipPath extends CustomClipper<Path> {
   bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
     return false;
   }
+}
+
+Widget customRow(img) {
+  return Row(
+    children: [
+      Expanded(
+        flex: 1,
+        child: Container(
+          height: 40,
+          color: Colors.red,
+        ),
+      ),
+      Expanded(
+          flex: 4,
+          child: Container(
+            color: Colors.green,
+          ))
+    ],
+  );
+}
+
+Widget come() {
+  return Expanded(
+      child: ListTile(
+    title: Text('data',style: TextStyle(color: Colors.white),),
+    subtitle: Text('1cdsvc',style: TextStyle(color: Colors.pink),),
+    leading: Container(
+      child: Image.asset("assets/images/Home/FastWorkout.png"),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.white),
+    ),
+    // leading: CircleAvatar(backgroundImage: AssetImage('assets/images/Home/FastWorkout.png'),),
+  ));
 }
