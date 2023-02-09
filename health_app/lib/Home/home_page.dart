@@ -5,6 +5,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:health_app/Home/plan_page.dart';
 import 'package:health_app/Home/today_page.dart';
+import 'package:health_app/pages/report_page.dart';
 
 import '../custom_text.dart';
 import 'custom_floating_accent_button.dart';
@@ -19,7 +20,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late double _dropdownSize = 50;
-  int _selectedIndex = 0;
   late TabController _tabController;
   static const List<String> list = <String>["", 'One', 'Two', 'Three', 'Four'];
   String dropdownValue = list.first;
@@ -44,49 +44,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(26, 91, 171, 1),
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.only(
-          bottom: 5,
-        ),
-        child: BottomNavigationBar(
-          backgroundColor: Color.fromRGBO(26, 91, 171, 0.9),
-          showUnselectedLabels: true,
-          items: [
-            BottomNavigationBarItem(
-              backgroundColor: Colors.indigo[800],
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.report,
-              ),
-              label: "Report",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.health_and_safety),
-              label: "Health",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "More",
-            )
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: Colors.greenAccent[400],
-          onTap: _onItemTapped,
-          type: BottomNavigationBarType.fixed,
-        ),
-      ),
       body: Container(
         child: Stack(
           children: [
@@ -120,7 +80,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         unselectedLabelColor: Colors.white,
                         unselectedLabelStyle: TextStyle(
                           fontWeight: FontWeight.w800,
-                          fontSize: 15,
+                          fontSize: 15.0,
                         ),
                         controller: _tabController,
                         indicatorColor: Colors.greenAccent[400],

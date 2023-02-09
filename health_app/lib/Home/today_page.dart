@@ -15,11 +15,11 @@ class _TodayPageState extends State<TodayPage> {
   Map dayWisePercentage = {
     "Sunday": 0.5,
     "Monday": 0.5,
-    "Tuesday": 1,
+    "Tuesday": 1.0,
     "Wednesday": 0.5,
-    "Thursday": 1,
+    "Thursday": 1.0,
     "Friday": 0.5,
-    "Saturday": 1,
+    "Saturday": 1.0,
   };
 
   @override
@@ -164,25 +164,32 @@ class _TodayPageState extends State<TodayPage> {
 
 List<Widget> percentageIndicatorList(Map map) {
   List<Widget> list = [];
-  map.forEach((key, value) {
-    if (value == 1.0) {
-      list.add(addCircularPercentIndicator(
-          days: key,
-          percent: value,
-          center: Container(
-            decoration: BoxDecoration(
-              color: Colors.green.shade500,
-              borderRadius: BorderRadius.circular(100),
+  map.forEach(
+    (key, value) {
+      if (value == 1.0) {
+        list.add(
+          addCircularPercentIndicator(
+            days: key,
+            percent: value.toDouble(),
+            center: Container(
+              decoration: BoxDecoration(
+                color: Colors.green.shade500,
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: Icon(
+                Icons.star,
+                color: Colors.white,
+              ),
             ),
-            child: Icon(
-              Icons.star,
-              color: Colors.white,
-            ),
-          )));
-    } else {
-      list.add(addCircularPercentIndicator(days: key, percent: value));
-    }
-  });
+          ),
+        );
+      } else {
+        list.add(
+          addCircularPercentIndicator(days: key, percent: value),
+        );
+      }
+    },
+  );
   return list;
 }
 
@@ -202,6 +209,6 @@ Widget addCircularPercentIndicator(
       child: CustomText(
           text: days[0].toString().toUpperCase(), color: Colors.green),
     ),
-    startAngle: 900,
+    startAngle: 900.0,
   );
 }

@@ -1,16 +1,27 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/custom_text.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:intl/intl.dart';
 
 class DailyPage extends StatelessWidget {
   const DailyPage({Key? key}) : super(key: key);
   static Map map1 = {
-    "Fat burning HIIT": [544299, "assets/images/Home/FastWorkout.png"],
-    "2 min chest workout": [546344, "assets/images/Home/FastWorkout.png"],
-    "2 min flat belly": [862490, "assets/images/Home/FastWorkout.png"],
-    "2 min arm workout": [693326, "assets/images/Home/FastWorkout.png"]
+    "Fat burning HIIT": [
+      544299,
+      "assets/images/Home/daily/fatBurning.jpg",
+    ],
+    "2 min chest workout": [
+      546344,
+      "assets/images/Home/daily/chestWorkout.jpg",
+    ],
+    "2 min flat belly": [
+      862490,
+      "assets/images/Home/daily/flatBelly.webp",
+    ],
+    "2 min arm workout": [
+      693326,
+      "assets/images/Home/daily/armWorkout.webp",
+    ]
   };
   static Map map2 = {
     "Get rid of man boobs HIIT": [
@@ -58,7 +69,7 @@ class DailyPage extends StatelessWidget {
                     Icons.history_outlined,
                     color: Colors.white,
                   ),
-                  Icon(Icons.more_vert, color: Colors.white)
+                  Icon(Icons.more_vert, color: Colors.white),
                 ],
               ),
             )
@@ -198,6 +209,15 @@ class DailyPage extends StatelessWidget {
               ],
             ),
           ),
+        ),
+        Container(
+          height: 50,
+          child: Center(
+            child: CustomText(
+                text: "Got feedback or questions? Tell us",
+                color: Colors.white54,
+                fontWeight: FontWeight.w400),
+          ),
         )
       ],
     );
@@ -208,6 +228,11 @@ Widget needsContainer(abc, image, text, mp) {
   return Container(
     height: 90,
     width: 160,
+    decoration: BoxDecoration(
+      gradient: abc,
+      borderRadius: BorderRadius.circular(10),
+    ),
+    margin: EdgeInsets.only(top: 5),
     child: Stack(
       children: [
         Container(
@@ -258,11 +283,6 @@ Widget needsContainer(abc, image, text, mp) {
         )
       ],
     ),
-    decoration: BoxDecoration(
-      gradient: abc,
-      borderRadius: BorderRadius.circular(10),
-    ),
-    margin: EdgeInsets.only(top: 5),
   );
 }
 
@@ -330,7 +350,9 @@ Widget hotChild(title, subtitle, imgPath) {
   return ListTile(
     title: Text(
       title,
-      style: TextStyle(color: Colors.white),
+      style: TextStyle(
+        color: Colors.white,
+      ),
     ),
     subtitle: CustomText(
       text: "Used by ${myFormat.format(subtitle)} people",
@@ -338,9 +360,18 @@ Widget hotChild(title, subtitle, imgPath) {
       fontSize: 12.0,
     ),
     leading: Container(
-      child: Image.asset(imgPath),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5), color: Colors.white),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: Image.asset(
+          imgPath,
+          fit: BoxFit.cover,
+          width: 70,
+          height: 70,
+        ),
+      ),
     ),
     // leading: CircleAvatar(backgroundImage: AssetImage('assets/images/Home/FastWorkout.png'),),
   );

@@ -70,6 +70,10 @@ flutter:
     - assets/images/Home/FastWorkout.png
     - assets/images/Home/BodyFocussing.png
     - assets/images/Home/Stretch.png
+    - assets/images/Home/daily/fatBurning.jpg
+    - assets/images/Home/daily/chestWorkout.jpg
+    - assets/images/Home/daily/flatBelly.webp
+    - assets/images/Home/daily/armWorkout.webp
 #    - images/a_dot_burr.jpeg
 #    - images/a_dot_ham.jpeg
 

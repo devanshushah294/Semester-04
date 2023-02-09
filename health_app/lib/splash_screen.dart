@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:health_app/Home/home_page.dart';
+import 'package:health_app/pages/all_pages.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   super.initState();
   Timer(const Duration(seconds: 5), () {
   Navigator.pushReplacement(
-  context, MaterialPageRoute(builder: (context) => const HomePage()));
+  context, MaterialPageRoute(builder: (context) => AllPages()));
   });
   }
 
