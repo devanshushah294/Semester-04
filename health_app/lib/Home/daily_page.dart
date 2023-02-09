@@ -2,9 +2,34 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/custom_text.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:intl/intl.dart';
 
 class DailyPage extends StatelessWidget {
   const DailyPage({Key? key}) : super(key: key);
+  static Map map1 = {
+    "Fat burning HIIT": [544299, "assets/images/Home/FastWorkout.png"],
+    "2 min chest workout": [546344, "assets/images/Home/FastWorkout.png"],
+    "2 min flat belly": [862490, "assets/images/Home/FastWorkout.png"],
+    "2 min arm workout": [693326, "assets/images/Home/FastWorkout.png"]
+  };
+  static Map map2 = {
+    "Get rid of man boobs HIIT": [
+      1075035,
+      "assets/images/Home/FastWorkout.png"
+    ],
+    "ONLY 4 moves for abs": [1032231, "assets/images/Home/FastWorkout.png"],
+  };
+  static Map map3 = {
+    "Pre-run warm up": [137390, "assets/images/Home/FastWorkout.png"],
+    "Sleepy time stretching": [353388, "assets/images/Home/FastWorkout.png"],
+    "Morning warm up": [353388, "assets/images/Home/FastWorkout.png"],
+    "Neck & shoulder tension relief": [
+      225379,
+      "assets/images/Home/FastWorkout.png"
+    ],
+    "Full body stretching": [820064, "assets/images/Home/FastWorkout.png"],
+    "Shoulder tension relief": [310859, "assets/images/Home/FastWorkout.png"]
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -167,58 +192,9 @@ class DailyPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: Colors.blue),
-                  // child: Column(
-                  //   children: [
-                  //     customRow("abc"),
-                  //     customRow("img"),
-                  //   ],
-                  // ),
-                  child: come(),
-                ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
-                // Container(
-                //   height: 50,
-                //   color: Colors.transparent,
-                // ),
+                customColumn(map1),
+                customColumn(map2),
+                customColumn(map3),
               ],
             ),
           ),
@@ -308,34 +284,74 @@ class CustomClipPath extends CustomClipper<Path> {
   }
 }
 
-Widget customRow(img) {
-  return Row(
-    children: [
-      Expanded(
-        flex: 1,
-        child: Container(
-          height: 40,
-          color: Colors.red,
-        ),
+// Widget customRow(img) {
+//   return Row(
+//     children: [
+//       Expanded(
+//         flex: 1,
+//         child: Container(
+//           height: 40,
+//           color: Colors.red,
+//         ),
+//       ),
+//       Expanded(
+//           flex: 4,
+//           child: Container(
+//             color: Colors.green,
+//           ))
+//     ],
+//   );
+// }
+
+Widget customColumn(Map map) {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(5),
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+          Color.fromRGBO(19, 69, 136, 1),
+          Color.fromRGBO(22, 82, 155, 1)
+        ],
       ),
-      Expanded(
-          flex: 4,
-          child: Container(
-            color: Colors.green,
-          ))
-    ],
+    ),
+    margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+    padding: const EdgeInsets.all(8.0),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: getList(map),
+    ),
   );
 }
 
-Widget come() {
-  return Expanded(
-      child: ListTile(
-    title: Text('data',style: TextStyle(color: Colors.white),),
-    subtitle: Text('1cdsvc',style: TextStyle(color: Colors.pink),),
+Widget hotChild(title, subtitle, imgPath) {
+  NumberFormat myFormat = NumberFormat.decimalPattern('en_us');
+  return ListTile(
+    title: Text(
+      title,
+      style: TextStyle(color: Colors.white),
+    ),
+    subtitle: CustomText(
+      text: "Used by ${myFormat.format(subtitle)} people",
+      color: Colors.white54,
+      fontSize: 12.0,
+    ),
     leading: Container(
-      child: Image.asset("assets/images/Home/FastWorkout.png"),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.white),
+      child: Image.asset(imgPath),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5), color: Colors.white),
     ),
     // leading: CircleAvatar(backgroundImage: AssetImage('assets/images/Home/FastWorkout.png'),),
-  ));
+  );
+}
+
+List<Widget> getList(Map map) {
+  List<Widget> list = [];
+  map.forEach((a, b) {
+    list.add(
+      hotChild(a, b[0], b[1]),
+    );
+  });
+  return list;
 }

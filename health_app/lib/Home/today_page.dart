@@ -11,8 +11,16 @@ class TodayPage extends StatefulWidget {
 
 class _TodayPageState extends State<TodayPage> {
   var todaysSteps = 5800;
-
   final taskSteps = 8000;
+  Map dayWisePercentage = {
+    "Sunday": 0.5,
+    "Monday": 0.5,
+    "Tuesday": 1,
+    "Wednesday": 0.5,
+    "Thursday": 1,
+    "Friday": 0.5,
+    "Saturday": 1,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -109,20 +117,7 @@ class _TodayPageState extends State<TodayPage> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            addCircularPercentIndicator(percent: 1, days: "s"),
-                            addCircularPercentIndicator(
-                                percent: 0.10, days: "m"),
-                            addCircularPercentIndicator(
-                                percent: 0.5, days: "t"),
-                            addCircularPercentIndicator(
-                                percent: 0.2, days: "w"),
-                            addCircularPercentIndicator(
-                                percent: 0.2, days: "t"),
-                            addCircularPercentIndicator(
-                                percent: 0.2, days: "f"),
-                            addCircularPercentIndicator(percent: 0.2, days: "s")
-                          ],
+                          children: percentageIndicatorList(dayWisePercentage),
                         ),
                       ],
                     ),
@@ -167,19 +162,45 @@ class _TodayPageState extends State<TodayPage> {
   }
 }
 
-Widget addCircularPercentIndicator({double? percent, required String days}) {
+List<Widget> percentageIndicatorList(Map map) {
+  List<Widget> list = [];
+  map.forEach((key, value) {
+    if (value == 1.0) {
+      list.add(addCircularPercentIndicator(
+          days: key,
+          percent: value,
+          center: Container(
+            decoration: BoxDecoration(
+              color: Colors.green.shade500,
+              borderRadius: BorderRadius.circular(100),
+            ),
+            child: Icon(
+              Icons.star,
+              color: Colors.white,
+            ),
+          )));
+    } else {
+      list.add(addCircularPercentIndicator(days: key, percent: value));
+    }
+  });
+  return list;
+}
+
+Widget addCircularPercentIndicator(
+    {double? percent, required String days, Widget? center}) {
   return CircularPercentIndicator(
     lineWidth: 3.0,
+    center: center ?? Container(),
     circularStrokeCap: CircularStrokeCap.round,
     radius: 15.0,
-    // arcType: ArcType.FULL,
-    percent: percent ?? 1.0,
+    percent: percent ?? 0.0,
     // progressColor: Colors.green[600],
     progressColor: Colors.green.shade500,
     backgroundColor: Colors.indigo.shade400,
     footer: Container(
       padding: EdgeInsets.only(top: 10),
-      child: CustomText(text: days, color: Colors.green),
+      child: CustomText(
+          text: days[0].toString().toUpperCase(), color: Colors.green),
     ),
     startAngle: 900,
   );
