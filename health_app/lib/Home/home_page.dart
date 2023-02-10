@@ -46,7 +46,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(26, 91, 171, 1),
       body: Container(
         child: Stack(
           children: [
@@ -64,9 +63,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             ),
             Column(
               children: [
-                Container(
-                  margin: EdgeInsets.only(top: 30),
-                ),
                 Row(
                   children: [
                     Expanded(
@@ -106,6 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         alignment: Alignment.centerRight,
                         child: SpeedDial(
                           visible: isSpeedDialVisible,
+                          animationDuration:Duration(milliseconds: 3),
                           useRotationAnimation: true,
                           spaceBetweenChildren: 2,
                           spacing: 10,
@@ -117,7 +114,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           // },
                           // onClose: () {
                           //   setState(() {
-                          //     this._dropdownSize = 50;
+                          //     this._dropdownSize = 30;
                           //   });
                           // },
                           switchLabelPosition: false,

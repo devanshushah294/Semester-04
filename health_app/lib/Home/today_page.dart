@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:health_app/custom_text.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -43,41 +45,119 @@ class _TodayPageState extends State<TodayPage> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     margin: const EdgeInsets.only(bottom: 4),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          flex: 3,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                flex: 3,
-                                child: CustomText(
-                                  text: "${todaysSteps}",
-                                  fontSize: 50.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 30),
+                      child: Column(
+                        children: [
+                          // Expanded(
+                          //   flex: 3,
+                          //   child: Row(
+                          //     children: [
+                          //       Expanded(
+                          //         flex: 3,
+                          //         child: Column(
+                          //           children: [
+                          //             Row(
+                          //               children: [
+                          //                 CustomText(
+                          //                   text: "${todaysSteps}",
+                          //                   fontSize: 50.0,
+                          //                   color: Colors.white,
+                          //                   fontWeight: FontWeight.bold,
+                          //                 ),
+                          //                 Column(
+                          //                   children: [
+                          //                     Container(
+                          //                       child: Icon(
+                          //                         FontAwesomeIcons.pen,
+                          //                         color: Colors.white,
+                          //                       ),
+                          //                     ),
+                          //                     Container(
+                          //                       margin: EdgeInsets.only(top: 2),
+                          //                       height: 2,
+                          //                       width: 25,
+                          //                       color: Colors.white,
+                          //                     )
+                          //                   ],
+                          //                 )
+                          //               ],
+                          //             )
+                          //           ],
+                          //         ),
+                          //       ),
+                          //       Expanded(
+                          //         flex: 2,
+                          //         child: Container(),
+                          //       ),
+                          //       Expanded(
+                          //         flex: 1,
+                          //         child: Container(),
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
+                          Expanded(
+                            flex: 1,
+                            child: ListTile(
+                              title: Container(
+                                width: 180,
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        CustomText(
+                                          text: "${taskSteps}",
+                                          fontSize: 60.0,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        CustomText(
+                                          text: "/${todaysSteps} steps",
+                                          fontSize: 15.0,
+                                          color: Colors.white54,
+                                        ),
+                                      ],
+                                    ),
+                                    Container(
+                                      margin:
+                                          EdgeInsets.only(top: 15, left: 10),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            child: Icon(
+                                              FontAwesomeIcons.pen,
+                                              color: Colors.white,
+                                              size: 15,
+                                            ),
+                                          ),
+                                          Container(
+                                            margin: EdgeInsets.only(top: 2),
+                                            height: 2,
+                                            width: 20,
+                                            color: Colors.white,
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
                                 ),
                               ),
-                              Expanded(
-                                flex: 2,
-                                child: Container(),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Container(),
-                              )
-                            ],
+                            ),
                           ),
-                        ),
-                        Expanded(
-                          child: Container(),
-                          flex: 1,
-                        ),
-                        Expanded(
-                          child: Container(),
-                          flex: 2,
-                        )
-                      ],
+                          Expanded(
+                            child: Container(),
+                            flex: 1,
+                          ),
+                          Expanded(
+                            child: Container(),
+                            flex: 1,
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -211,4 +291,28 @@ Widget addCircularPercentIndicator(
     ),
     startAngle: 900.0,
   );
+}
+
+class CustomClipPath extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    double w = size.width;
+    double h = size.height;
+    final path = Path();
+    path.moveTo(w - 10, 0);
+    path.lineTo(0, h - 10);
+    path.lineTo(0, h);
+    path.lineTo(10, h);
+    path.lineTo(w, h - 10);
+    path.lineTo(w - 10, 0);
+    // path.moveTo(w, h);
+    // path.lineTo(0, h);
+    // path.lineTo(w, 0);
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
 }

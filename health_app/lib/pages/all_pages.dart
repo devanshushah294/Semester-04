@@ -1,9 +1,9 @@
+import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/Home/home_page.dart';
 import 'package:health_app/pages/report_page.dart';
 
 class AllPages extends StatefulWidget {
-
   const AllPages({Key? key}) : super(key: key);
 
   @override
@@ -29,10 +29,15 @@ class _AllPagesState extends State<AllPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: widgetList[_selectedIndex],
+      backgroundColor: Color.fromRGBO(26, 91, 171, 1),
+      body: ColorfulSafeArea(
+        color: Color.fromRGBO(9, 30, 77, 1),
+        child: widgetList[_selectedIndex],
+      ),
+      // body: widgetList[_selectedIndex],
       bottomNavigationBar: Container(
         margin: EdgeInsets.only(
-          bottom: 5,
+          bottom: 10,
         ),
         child: BottomNavigationBar(
           backgroundColor: Color.fromRGBO(26, 91, 171, 0.9),

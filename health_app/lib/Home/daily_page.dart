@@ -46,34 +46,28 @@ class DailyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 15,
-                // padding: EdgeInsets.only(bottom: 10),
-                child: CustomText(
-                  text: "Guess you might need",
-                  fontSize: 15.0,
+        ListTile(
+          leading: CustomText(
+            text: "Guess you might need",
+            color: Colors.white,
+            fontSize: 15.0,
+            fontWeight: FontWeight.w500,
+          ),
+          trailing: SizedBox(
+            width: 50,
+            child: Row(
+              children: [
+                Icon(
+                  Icons.history_outlined,
                   color: Colors.white,
                 ),
-              ),
+                Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
+                ),
+              ],
             ),
-            Expanded(
-              flex: 1,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Icon(
-                    Icons.history_outlined,
-                    color: Colors.white,
-                  ),
-                  Icon(Icons.more_vert, color: Colors.white),
-                ],
-              ),
-            )
-          ],
+          ),
         ),
         SizedBox(
           height: 200,
@@ -303,25 +297,6 @@ class CustomClipPath extends CustomClipper<Path> {
     return false;
   }
 }
-
-// Widget customRow(img) {
-//   return Row(
-//     children: [
-//       Expanded(
-//         flex: 1,
-//         child: Container(
-//           height: 40,
-//           color: Colors.red,
-//         ),
-//       ),
-//       Expanded(
-//           flex: 4,
-//           child: Container(
-//             color: Colors.green,
-//           ))
-//     ],
-//   );
-// }
 
 Widget customColumn(Map map) {
   return Container(
