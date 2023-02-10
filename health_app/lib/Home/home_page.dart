@@ -72,14 +72,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           fontWeight: FontWeight.w900,
                           fontSize: 18,
                         ),
-                        labelColor: Colors.greenAccent[400],
+                        labelColor: Color.fromRGBO(38, 191, 100, 1),
                         unselectedLabelColor: Colors.white,
                         unselectedLabelStyle: TextStyle(
                           fontWeight: FontWeight.w800,
                           fontSize: 15.0,
                         ),
                         controller: _tabController,
-                        indicatorColor: Colors.greenAccent[400],
+                        indicatorColor: Color.fromRGBO(38, 191, 100, 1),
                         indicatorSize: TabBarIndicatorSize.label,
                         indicatorPadding: EdgeInsets.all(10),
                         tabs: const <Widget>[
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           overlayOpacity: 0.7,
                           childrenButtonSize: Size(60, 60),
                           overlayColor: Colors.black,
-                          backgroundColor: Colors.greenAccent[400],
+                          backgroundColor: Color.fromRGBO(38, 191, 100, 1),
                           direction: SpeedDialDirection.down,
                           activeIcon: Icons.keyboard_arrow_up_sharp,
                           icon: Icons.keyboard_arrow_down_rounded,
@@ -177,7 +177,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
 SpeedDialChild customSpeedDialChild(String text, icon, {color, a}) {
   return SpeedDialChild(
-    backgroundColor: color ?? Colors.greenAccent[400],
+    backgroundColor: color ?? Color.fromRGBO(38, 191, 100, 1),
     child: Icon(icon, color: Colors.white),
     labelWidget: CustomText(text: text, color: Colors.white),
   );

@@ -66,7 +66,7 @@ class _AllPagesState extends State<AllPages> {
             )
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.greenAccent[400],
+          selectedItemColor: Color.fromRGBO(38, 191, 100, 1),
           onTap: _onItemTapped,
           type: BottomNavigationBarType.fixed,
         ),

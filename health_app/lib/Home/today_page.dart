@@ -12,21 +12,24 @@ class TodayPage extends StatefulWidget {
 }
 
 class _TodayPageState extends State<TodayPage> {
+  dynamic _todayStepsColor = Colors.white;
+
+  bool _playPauseToggle = true;
+  var dailyAverage = 2800;
   var todaysSteps = 5800;
-  final taskSteps = 8000;
+  var taskSteps = 8000;
   Map dayWisePercentage = {
     "Sunday": 0.5,
-    "Monday": 0.5,
+    "Monday": 0.6,
     "Tuesday": 1.0,
-    "Wednesday": 0.5,
-    "Thursday": 1.0,
-    "Friday": 0.5,
+    "Wednesday": 0.7,
+    "Thursday": 0.8,
+    "Friday": 0.9,
     "Saturday": 1.0,
   };
 
   @override
   Widget build(BuildContext context) {
-    var dailyAverage = 2800;
     return Container(
       // color: Colors.indigo,
       padding: const EdgeInsets.only(top: 20, right: 5, left: 5),
@@ -37,7 +40,11 @@ class _TodayPageState extends State<TodayPage> {
             child: Column(
               children: [
                 Expanded(
-                  flex: 5,
+                  child: Container(),
+                  flex: 1,
+                ),
+                Expanded(
+                  flex: 10,
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -46,80 +53,27 @@ class _TodayPageState extends State<TodayPage> {
                     ),
                     margin: const EdgeInsets.only(bottom: 4),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 30),
+                      padding: EdgeInsets.symmetric(vertical: 20),
                       child: Column(
                         children: [
-                          // Expanded(
-                          //   flex: 3,
-                          //   child: Row(
-                          //     children: [
-                          //       Expanded(
-                          //         flex: 3,
-                          //         child: Column(
-                          //           children: [
-                          //             Row(
-                          //               children: [
-                          //                 CustomText(
-                          //                   text: "${todaysSteps}",
-                          //                   fontSize: 50.0,
-                          //                   color: Colors.white,
-                          //                   fontWeight: FontWeight.bold,
-                          //                 ),
-                          //                 Column(
-                          //                   children: [
-                          //                     Container(
-                          //                       child: Icon(
-                          //                         FontAwesomeIcons.pen,
-                          //                         color: Colors.white,
-                          //                       ),
-                          //                     ),
-                          //                     Container(
-                          //                       margin: EdgeInsets.only(top: 2),
-                          //                       height: 2,
-                          //                       width: 25,
-                          //                       color: Colors.white,
-                          //                     )
-                          //                   ],
-                          //                 )
-                          //               ],
-                          //             )
-                          //           ],
-                          //         ),
-                          //       ),
-                          //       Expanded(
-                          //         flex: 2,
-                          //         child: Container(),
-                          //       ),
-                          //       Expanded(
-                          //         flex: 1,
-                          //         child: Container(),
-                          //       )
-                          //     ],
-                          //   ),
-                          // ),
                           Expanded(
-                            flex: 1,
+                            flex: 2,
                             child: ListTile(
                               title: Container(
-                                width: 180,
+                                // width: 150,
                                 child: Row(
                                   children: [
                                     Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         CustomText(
-                                          text: "${taskSteps}",
+                                          text: "${todaysSteps}",
                                           fontSize: 60.0,
-                                          color: Colors.white,
+                                          color: _todayStepsColor,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                        CustomText(
-                                          text: "/${todaysSteps} steps",
-                                          fontSize: 15.0,
-                                          color: Colors.white54,
-                                        ),
+                                        changeTaskStepOnPlayPause(),
                                       ],
                                     ),
                                     Container(
@@ -146,15 +100,90 @@ class _TodayPageState extends State<TodayPage> {
                                   ],
                                 ),
                               ),
+                              trailing: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    if (_playPauseToggle == true) {
+                                      _playPauseToggle = false;
+                                    } else {
+                                      _playPauseToggle = true;
+                                    }
+                                  });
+                                },
+                                child: Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: Colors.white38,
+                                  ),
+                                  child: changePlayPauseIcons(),
+                                ),
+                              ),
                             ),
                           ),
                           Expanded(
-                            child: Container(),
-                            flex: 1,
+                            flex: 2,
+                            child: Container(
+                              // color: Colors.black54,
+                              child: LinearPercentIndicator(
+                                percent: todaysSteps / taskSteps,
+                                lineHeight: 20,
+                                barRadius: Radius.circular(10),
+                                backgroundColor: Colors.white12,
+                                progressColor: Color.fromRGBO(38, 191, 100, 1),
+                              ),
+                            ),
                           ),
                           Expanded(
-                            child: Container(),
-                            flex: 1,
+                            flex: 2,
+                            child: Container(
+                              padding: EdgeInsets.only(right: 50, top: 25),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: threeIcons(FontAwesomeIcons.route,
+                                        Colors.amber, 2.66, "Km"),
+                                  ),
+                                  Expanded(
+                                    child: threeIcons(
+                                        Icons.local_fire_department,
+                                        Colors.orange,
+                                        205.4,
+                                        "Calories"),
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      padding: EdgeInsets.only(left: 15),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            margin: EdgeInsets.only(bottom: 10),
+                                            child: Icon(
+                                              Icons.timer,
+                                              color: Colors.lightBlueAccent,
+                                            ),
+                                          ),
+                                          CustomText(
+                                            text: "0h 37m",
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.w900,
+                                            color: Colors.white,
+                                          ),
+                                          CustomText(
+                                            fontSize: 12.0,
+                                            text: "Walking Time",
+                                            color: Colors.white54,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           )
                         ],
                       ),
@@ -162,38 +191,43 @@ class _TodayPageState extends State<TodayPage> {
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 4,
                   child: Container(
-                    margin: EdgeInsets.only(top: 10),
+                    margin: EdgeInsets.only(top: 5),
                     decoration: BoxDecoration(
                       color: Colors.white10,
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.only(left: 20, top: 5),
-                              margin: EdgeInsets.only(bottom: 15),
-                              child: CustomText(
-                                color: Colors.white38,
-                                text: "Daily average: ",
-                                fontSize: 16.0,
-                                textAlign: TextAlign.left,
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 25),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                // padding: EdgeInsets.only(left: 20, top: 5),
+                                // margin: EdgeInsets.only(bottom: 15),
+                                child: CustomText(
+                                  color: Colors.white38,
+                                  text: "Daily average: ",
+                                  fontSize: 16.0,
+                                  textAlign: TextAlign.left,
+                                ),
                               ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.only(bottom: 8),
-                              child: CustomText(
-                                text: "${dailyAverage}",
-                                fontSize: 16.0,
-                                textAlign: TextAlign.left,
-                                color: Colors.white,
+                              Container(
+                                // padding: EdgeInsets.only(bottom: 8),
+                                child: CustomText(
+                                  text: "${dailyAverage}",
+                                  fontSize: 16.0,
+                                  textAlign: TextAlign.left,
+                                  color: Colors.white,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -204,41 +238,66 @@ class _TodayPageState extends State<TodayPage> {
                   ),
                 ),
                 Expanded(
-                  flex: 3,
+                  flex: 6,
                   child: Container(),
                 ),
               ],
             ),
           ),
         ],
-        // child: CustomScrollView(
-        //   slivers: [
-        //     SliverFillRemaining(
-        //       hasScrollBody: false,
-        //       child: Column(
-        //         children: [
-        //           Expanded(
-        //             child: Container(
-        //               color: Colors.red,
-        //             ),
-        //           ),
-        //           Expanded(
-        //             child: Container(
-        //               color: Colors.pink,
-        //             ),
-        //           ),
-        //           Expanded(
-        //             child: Container(
-        //               color: Colors.green,
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     )
-        //   ],
-        // ),
       ),
     );
+  }
+
+  Widget changeTaskStepOnPlayPause() {
+    if (_playPauseToggle == true) {
+      _todayStepsColor = Colors.white;
+      return Container(
+        height: 30,
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 6),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(100),
+        ),
+        child: CustomText(
+          text: "Paused",
+          fontWeight: FontWeight.w700,
+          color: Color.fromRGBO(38, 191, 100, 1),
+        ),
+      );
+    } else {
+      _todayStepsColor = Colors.white54;
+      return CustomText(
+        text: "/${taskSteps} Steps",
+        fontSize: 18.0,
+        color: Colors.white54,
+      );
+    }
+  }
+
+  Widget changePlayPauseIcons() {
+    if (_playPauseToggle == true) {
+      return Container(
+        child: Icon(
+          Icons.play_arrow_rounded,
+          color: Color.fromRGBO(38, 191, 100, 1),
+        ),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(100),
+        ),
+      );
+    } else {
+      return Container(
+        child: Icon(
+          Icons.pause,
+          color: Colors.white,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+        ),
+      );
+    }
   }
 }
 
@@ -253,11 +312,11 @@ List<Widget> percentageIndicatorList(Map map) {
             percent: value.toDouble(),
             center: Container(
               decoration: BoxDecoration(
-                color: Colors.green.shade500,
+                color: Color.fromRGBO(38, 191, 100, 1),
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Icon(
-                Icons.star,
+                Icons.star_rounded,
                 color: Colors.white,
               ),
             ),
@@ -282,37 +341,44 @@ Widget addCircularPercentIndicator(
     radius: 15.0,
     percent: percent ?? 0.0,
     // progressColor: Colors.green[600],
-    progressColor: Colors.green.shade500,
+    progressColor: Color.fromRGBO(38, 191, 100, 1),
     backgroundColor: Colors.indigo.shade400,
     footer: Container(
       padding: EdgeInsets.only(top: 10),
       child: CustomText(
-          text: days[0].toString().toUpperCase(), color: Colors.green),
+        text: days[0].toString().toUpperCase(),
+        color: Color.fromRGBO(38, 191, 100, 1),
+      ),
     ),
     startAngle: 900.0,
   );
 }
 
-class CustomClipPath extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    double w = size.width;
-    double h = size.height;
-    final path = Path();
-    path.moveTo(w - 10, 0);
-    path.lineTo(0, h - 10);
-    path.lineTo(0, h);
-    path.lineTo(10, h);
-    path.lineTo(w, h - 10);
-    path.lineTo(w - 10, 0);
-    // path.moveTo(w, h);
-    // path.lineTo(0, h);
-    // path.lineTo(w, 0);
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
-  }
+Widget threeIcons(icon, iconColor, amount, measure) {
+  return Container(
+    padding: EdgeInsets.only(left: 15),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          margin: EdgeInsets.only(bottom: 10),
+          child: Icon(
+            icon,
+            color: iconColor,
+          ),
+        ),
+        CustomText(
+          text: "$amount",
+          fontSize: 20.0,
+          fontWeight: FontWeight.w900,
+          color: Colors.white,
+        ),
+        CustomText(
+          fontSize: 12.0,
+          text: measure,
+          color: Colors.white54,
+        ),
+      ],
+    ),
+  );
 }
