@@ -1,6 +1,8 @@
 import 'package:colorful_safe_area/colorful_safe_area.dart';
 import 'package:flutter/material.dart';
 import 'package:health_app/Home/home_page.dart';
+import 'package:health_app/pages/health_page.dart';
+import 'package:health_app/pages/more_page.dart';
 import 'package:health_app/pages/report_page.dart';
 
 class AllPages extends StatefulWidget {
@@ -22,8 +24,8 @@ class _AllPagesState extends State<AllPages> {
   List<Widget> widgetList = [
     HomePage(),
     ReportPage(),
-    HomePage(),
-    ReportPage(),
+    HealthPage(),
+    MorePage(),
   ];
 
   @override

@@ -132,63 +132,17 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.red,
-                  height: 50,
-                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePage(),
+                      ),
+                    );
+                  },
+                  child: Text("Please click"),
+                )
               ],
             ),
           ),

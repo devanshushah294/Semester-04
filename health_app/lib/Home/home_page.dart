@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Color.fromRGBO(9, 30, 77, 1),
+                    Color.fromRGBO(8, 22, 59, 1),
                     Color.fromRGBO(22, 82, 155, 1)
                   ],
                 ),
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         alignment: Alignment.centerRight,
                         child: SpeedDial(
                           visible: isSpeedDialVisible,
-                          animationDuration:Duration(milliseconds: 3),
+                          animationDuration: Duration(milliseconds: 3),
                           useRotationAnimation: true,
                           spaceBetweenChildren: 2,
                           spacing: 10,
@@ -155,7 +155,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 Expanded(
                   child: Container(
-                    // padding: EdgeInsets.only(top: 0),
                     child: TabBarView(
                       controller: _tabController,
                       children: const <Widget>[

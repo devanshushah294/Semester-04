@@ -31,20 +31,18 @@ class _TodayPageState extends State<TodayPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.indigo,
-      padding: const EdgeInsets.only(top: 20, right: 5, left: 5),
+      padding: const EdgeInsets.only(right: 5, left: 5),
       child: CustomScrollView(
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
               children: [
-                Expanded(
-                  child: Container(),
-                  flex: 1,
+                Container(
+                  height: 10,
                 ),
                 Expanded(
-                  flex: 10,
+                  flex: 5,
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
@@ -57,7 +55,7 @@ class _TodayPageState extends State<TodayPage> {
                       child: Column(
                         children: [
                           Expanded(
-                            flex: 2,
+                            flex: 1,
                             child: ListTile(
                               title: Container(
                                 // width: 150,
@@ -123,7 +121,7 @@ class _TodayPageState extends State<TodayPage> {
                             ),
                           ),
                           Expanded(
-                            flex: 2,
+                            flex: 1,
                             child: Container(
                               // color: Colors.black54,
                               child: LinearPercentIndicator(
@@ -136,7 +134,7 @@ class _TodayPageState extends State<TodayPage> {
                             ),
                           ),
                           Expanded(
-                            flex: 2,
+                            flex: 1,
                             child: Container(
                               padding: EdgeInsets.only(right: 50, top: 25),
                               child: Row(
@@ -191,7 +189,7 @@ class _TodayPageState extends State<TodayPage> {
                   ),
                 ),
                 Expanded(
-                  flex: 4,
+                  flex: 2,
                   child: Container(
                     margin: EdgeInsets.only(top: 5),
                     decoration: BoxDecoration(
@@ -238,7 +236,7 @@ class _TodayPageState extends State<TodayPage> {
                   ),
                 ),
                 Expanded(
-                  flex: 6,
+                  flex: 3,
                   child: Container(),
                 ),
               ],
@@ -250,7 +248,7 @@ class _TodayPageState extends State<TodayPage> {
   }
 
   Widget changeTaskStepOnPlayPause() {
-    if (_playPauseToggle == true) {
+    if (_playPauseToggle) {
       _todayStepsColor = Colors.white;
       return Container(
         height: 30,
@@ -276,7 +274,7 @@ class _TodayPageState extends State<TodayPage> {
   }
 
   Widget changePlayPauseIcons() {
-    if (_playPauseToggle == true) {
+    if (_playPauseToggle) {
       return Container(
         child: Icon(
           Icons.play_arrow_rounded,

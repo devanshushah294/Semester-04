@@ -26,194 +26,211 @@ class DailyPage extends StatelessWidget {
   static Map map2 = {
     "Get rid of man boobs HIIT": [
       1075035,
-      "assets/images/Home/FastWorkout.png"
+      "assets/images/Home/daily/getRidOfManBoobs.jpg"
     ],
-    "ONLY 4 moves for abs": [1032231, "assets/images/Home/FastWorkout.png"],
+    "ONLY 4 moves for abs": [
+      1032231,
+      "assets/images/Home/daily/only4MovesForAbs.jpg"
+    ],
   };
   static Map map3 = {
-    "Pre-run warm up": [137390, "assets/images/Home/FastWorkout.png"],
-    "Sleepy time stretching": [353388, "assets/images/Home/FastWorkout.png"],
-    "Morning warm up": [353388, "assets/images/Home/FastWorkout.png"],
+    "Pre-run warm up": [137390, "assets/images/Home/daily/preRunWarmUp.jpg"],
+    "Morning warm up": [353388, "assets/images/Home/daily/preRunWarmUp.jpg"],
+    "Sleepy time stretching": [
+      353388,
+      "assets/images/Home/daily/sleepyAndStretching.webp"
+    ],
     "Neck & shoulder tension relief": [
       225379,
-      "assets/images/Home/FastWorkout.png"
+      "assets/images/Home/daily/neckAndShoulderTensionRelief.jpg"
     ],
-    "Full body stretching": [820064, "assets/images/Home/FastWorkout.png"],
-    "Shoulder tension relief": [310859, "assets/images/Home/FastWorkout.png"]
+    "Full body stretching": [
+      820064,
+      "assets/images/Home/daily/fullBodyStretch.jpg"
+    ],
+    "Shoulder tension relief": [
+      310859,
+      "assets/images/Home/daily/shoulderTensionRelief.jpg"
+    ]
   };
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ListTile(
-          leading: CustomText(
-            text: "Guess you might need",
-            color: Colors.white,
-            fontSize: 15.0,
-            fontWeight: FontWeight.w500,
-          ),
-          trailing: SizedBox(
-            width: 50,
-            child: Row(
-              children: [
-                Icon(
-                  Icons.history_outlined,
-                  color: Colors.white,
-                ),
-                Icon(
-                  Icons.more_vert,
-                  color: Colors.white,
-                ),
-              ],
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      child: ListView(
+        children: [
+          ListTile(
+            leading: CustomText(
+              text: "Guess you might need",
+              color: Colors.white,
+              fontSize: 15.0,
+              fontWeight: FontWeight.w500,
+            ),
+            trailing: SizedBox(
+              width: 50,
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.history_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Icons.more_vert,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        SizedBox(
-          height: 200,
-          child: ListView(
-            itemExtent: 170,
-            scrollDirection: Axis.horizontal,
-            children: [
-              Column(
-                children: [
-                  needsContainer(
-                      LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color.fromRGBO(132, 165, 200, 1),
-                          Color.fromRGBO(94, 73, 84, 1)
-                        ],
-                      ),
-                      "assets/images/Home/FastWorkout.png",
-                      "Fast Workout",
-                      90.0),
-                  needsContainer(
-                      LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color.fromRGBO(208, 49, 45, 1),
-                          Color.fromRGBO(94, 73, 84, 1)
-                        ],
-                      ),
-                      "assets/images/Home/BodyFocussing.png",
-                      "Body focus",
-                      90.0)
-                ],
-              ),
-              Column(
-                children: [
-                  needsContainer(
-                      LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [
-                          Color.fromRGBO(255, 182, 193, 1),
-                          Color.fromRGBO(94, 73, 84, 1)
-                        ],
-                      ),
-                      "assets/images/Home/Stretch.png",
-                      "Stretch",
-                      65.0),
-                  needsContainer(
-                      LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [Color(0x84A5C8), Color(0x718095)],
-                      ),
-                      "assets/images/Home/FastWorkout.png",
-                      "Warm up",
-                      90.0),
-                ],
-              ),
-              Column(
-                children: [
-                  needsContainer(
-                      LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        colors: [Color(0x84A5C8), Color(0x718095)],
-                      ),
-                      "assets/images/Home/FastWorkout.png",
-                      "Pain relief",
-                      90.0),
-                ],
-              ),
-            ],
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-          ),
-          clipBehavior: Clip.antiAlias,
-          child: Container(
-            color: Colors.white10,
-            // padding: EdgeInsets.only(top: 5),
-            child: Column(
-              // mainAxisSize: MainAxisSize.max,
+          SizedBox(
+            height: 200,
+            child: ListView(
+              itemExtent: 170,
+              scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  height: 100,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              child: CustomText(
-                                text: "Hot",
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.white,
-                              ),
-                              margin: EdgeInsets.only(top: 15),
-                            ),
-                            CustomText(
-                              text: "12 workouts",
-                              fontSize: 10.0,
-                              fontWeight: FontWeight.w100,
-                              color: Colors.white24,
-                            ),
+                Column(
+                  children: [
+                    needsContainer(
+                        LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color.fromRGBO(132, 165, 200, 1),
+                            Color.fromRGBO(94, 73, 84, 1)
                           ],
                         ),
-                        Container(
-                          child: CircleAvatar(
-                            maxRadius: 35,
-                            foregroundImage: AssetImage(
-                                "assets/images/Home/FastWorkout.png"),
-                            // radius: 35,
-                            backgroundColor: Color.fromRGBO(9, 30, 77, 1),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
+                        "assets/images/Home/FastWorkout.png",
+                        "Fast Workout",
+                        90.0),
+                    needsContainer(
+                        LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color.fromRGBO(208, 49, 45, 1),
+                            Color.fromRGBO(94, 73, 84, 1)
+                          ],
+                        ),
+                        "assets/images/Home/BodyFocussing.png",
+                        "Body focus",
+                        90.0)
+                  ],
                 ),
-                customColumn(map1),
-                customColumn(map2),
-                customColumn(map3),
+                Column(
+                  children: [
+                    needsContainer(
+                        LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color.fromRGBO(255, 182, 193, 1),
+                            Color.fromRGBO(94, 73, 84, 1)
+                          ],
+                        ),
+                        "assets/images/Home/Stretch.png",
+                        "Stretch",
+                        65.0),
+                    needsContainer(
+                        LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0x84A5C8), Color(0x718095)],
+                        ),
+                        "assets/images/Home/FastWorkout.png",
+                        "Warm up",
+                        90.0),
+                  ],
+                ),
+                Column(
+                  children: [
+                    needsContainer(
+                        LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0x84A5C8), Color(0x718095)],
+                        ),
+                        "assets/images/Home/FastWorkout.png",
+                        "Pain relief",
+                        90.0),
+                  ],
+                ),
               ],
             ),
           ),
-        ),
-        Container(
-          height: 50,
-          child: Center(
-            child: CustomText(
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: Container(
+              color: Colors.white10,
+              // padding: EdgeInsets.only(top: 5),
+              child: Column(
+                // mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    height: 100,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                child: CustomText(
+                                  text: "Hot",
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w800,
+                                  color: Colors.white,
+                                ),
+                                margin: EdgeInsets.only(top: 15, bottom: 5),
+                              ),
+                              CustomText(
+                                text: "12 workouts",
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w100,
+                                color: Colors.white54,
+                              ),
+                            ],
+                          ),
+                          Container(
+                            child: CircleAvatar(
+                              maxRadius: 30,
+                              foregroundImage: AssetImage(
+                                  "assets/images/Home/FastWorkout.png"),
+                              // radius: 35,
+                              backgroundColor: Color.fromRGBO(9, 30, 77, 1),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                  customColumn(map1),
+                  customColumn(map2),
+                  customColumn(map3),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            height: 100,
+            child: Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.only(bottom: 40),
+              child: CustomText(
                 text: "Got feedback or questions? Tell us",
                 color: Colors.white54,
-                fontWeight: FontWeight.w400),
-          ),
-        )
-      ],
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -301,7 +318,7 @@ class CustomClipPath extends CustomClipper<Path> {
 Widget customColumn(Map map) {
   return Container(
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(15),
       gradient: LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,

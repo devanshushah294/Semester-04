@@ -75,6 +75,15 @@ flutter:
     - assets/images/Home/daily/chestWorkout.jpg
     - assets/images/Home/daily/flatBelly.webp
     - assets/images/Home/daily/armWorkout.webp
+    - assets/images/Home/daily/getRidOfManBoobs.jpg
+    - assets/images/Home/daily/only4MovesForAbs.jpg
+    - assets/images/Home/daily/preRunWarmUp.jpg
+    - assets/images/Home/daily/sleepyAndStretching.webp
+    - assets/images/Home/daily/neckAndShoulderTensionRelief.jpg
+    - assets/images/Home/daily/fullBodyStretch.jpg
+    - assets/images/Home/daily/shoulderTensionRelief.jpg
+    - assets/icons/googleFitIcon.png
+    - assets/icons/achievement-icon.png
 #    - images/a_dot_burr.jpeg
 #    - images/a_dot_ham.jpeg
 

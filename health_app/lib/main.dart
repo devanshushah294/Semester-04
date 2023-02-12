@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_app/Home/daily_page.dart';
 import 'package:health_app/Home/home_page.dart';
 import 'package:health_app/Home/today_page.dart';
+import 'package:health_app/bottom_rounded_icon.dart';
 import 'package:health_app/splash_screen.dart';
 
 void main() {
@@ -15,12 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       // home : HomePage(),
       // home: HomePage(),
       // home: TodayPage(),
-      home: const SplashScreen(),
+      home:SplashScreen(),
+      // home: const SplashScreen(),
     );
   }
 }
