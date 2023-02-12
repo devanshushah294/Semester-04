@@ -23,7 +23,7 @@ class CustomText extends StatelessWidget {
       text,
       textAlign: textAlign ?? TextAlign.left,
       style: TextStyle(
-        color: this.color ?? Colors.black,
+        color: this.color ?? Colors.white,
         fontSize: fontSize,
         fontWeight: fontWeight,
         fontFamily: fontFamily,

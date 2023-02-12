@@ -10,6 +10,29 @@ class MorePage extends StatefulWidget {
 }
 
 class _MorePageState extends State<MorePage> {
+  List steps = [
+    500,
+    1000,
+    1500,
+    2000,
+    2500,
+    3000,
+    3500,
+    4000,
+    4500,
+    5000,
+    5500,
+    6000,
+    6500,
+    7000,
+    7500,
+    8000,
+    8500,
+    9000,
+    9500,
+    10000
+  ];
+  var stepsGoalSelected = 1000;
   bool isSwitched = false;
   bool isDrinkWaterSwitched = true;
   String? chosenLanguage = "English";
@@ -217,8 +240,10 @@ class _MorePageState extends State<MorePage> {
                       padding:
                           EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white10),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.white),
+                        color: Colors.white10,
+                      ),
                       child: ListTile(
                         leading: Image.asset(
                             "assets/icons/achievement-icon.png",
@@ -278,7 +303,65 @@ class _MorePageState extends State<MorePage> {
                   15,
                 ),
               ),
-              child: Column(),
+              child: Column(
+                children: [
+                  ListTile(
+                    title: CustomText(
+                      text: "Step Goal",
+                    ),
+                    leading: Icon(
+                      FontAwesomeIcons.bullseye,
+                      color: Colors.white,
+                    ),
+                  ),
+                  ListTile(
+                    trailing: DropdownButton(
+                      items: steps,
+                      onChanged: ((value) {
+                        setState(() {
+                          stepsGoalSelected = value;
+                        });
+                      }),
+                    ),
+                    leading: Container(
+                      // margin: EdgeInsets.only(right: 15),
+                      padding: EdgeInsets.only(right: 15),
+                      child: Image.asset(
+                        "assets/icons/sensitivityIcon.png",
+                        height: 30,
+                        color: Colors.white,
+                      ),
+                    ),
+                    title: CustomText(
+                      text: "Sensitivity",
+                    ),
+                    subtitle: CustomText(
+                      text:
+                          "High senstivity means small movements will be counted as steps",
+                      color: Colors.white54,
+                      fontSize: 12.0,
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.monitor_weight_outlined,
+                      color: Colors.white,
+                    ),
+                    title: CustomText(
+                      text: "Weight",
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                    title: CustomText(
+                      text: "More Settings",
+                    ),
+                  ),
+                ],
+              ),
             ),
             Container(
               margin: EdgeInsets.symmetric(
@@ -381,7 +464,7 @@ class _MorePageState extends State<MorePage> {
                         color: Colors.white54,
                       ),
                       trailing: Container(
-                        width: 98,
+                        width: 90,
                         child: Row(
                           children: [
                             CustomText(

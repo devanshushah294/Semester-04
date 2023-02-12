@@ -83,6 +83,7 @@ flutter:
     - assets/images/Home/daily/fullBodyStretch.jpg
     - assets/images/Home/daily/shoulderTensionRelief.jpg
     - assets/icons/googleFitIcon.png
+    - assets/icons/sensitivityIcon.png
     - assets/icons/achievement-icon.png
 #    - images/a_dot_burr.jpeg
 #    - images/a_dot_ham.jpeg
