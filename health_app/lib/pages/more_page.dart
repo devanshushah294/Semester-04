@@ -315,14 +315,14 @@ class _MorePageState extends State<MorePage> {
                     ),
                   ),
                   ListTile(
-                    trailing: DropdownButton(
-                      items: steps,
-                      onChanged: ((value) {
-                        setState(() {
-                          stepsGoalSelected = value;
-                        });
-                      }),
-                    ),
+                    // trailing: DropdownButton(
+                    //   items: steps,
+                    //   onChanged: ((value) {
+                    //     setState(() {
+                    //       // stepsGoalSelected = value;
+                    //     });
+                    //   }),
+                    // ),
                     leading: Container(
                       // margin: EdgeInsets.only(right: 15),
                       padding: EdgeInsets.only(right: 15),
@@ -464,7 +464,7 @@ class _MorePageState extends State<MorePage> {
                         color: Colors.white54,
                       ),
                       trailing: Container(
-                        width: 90,
+                        width: 100,
                         child: Row(
                           children: [
                             CustomText(

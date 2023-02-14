@@ -8,7 +8,6 @@ import 'package:health_app/Home/today_page.dart';
 import 'package:health_app/pages/report_page.dart';
 
 import '../custom_text.dart';
-import 'custom_floating_accent_button.dart';
 import 'daily_page.dart';
 
 class HomePage extends StatefulWidget {

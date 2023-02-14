@@ -63,7 +63,6 @@ class DailyPage extends StatelessWidget {
           ListTile(
             leading: CustomText(
               text: "Guess you might need",
-              color: Colors.white,
               fontSize: 15.0,
               fontWeight: FontWeight.w500,
             ),
@@ -185,7 +184,6 @@ class DailyPage extends StatelessWidget {
                                   text: "Hot",
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.w800,
-                                  color: Colors.white,
                                 ),
                                 margin: EdgeInsets.only(top: 15, bottom: 5),
                               ),
@@ -287,7 +285,6 @@ Widget needsContainer(abc, image, text, mp) {
           margin: EdgeInsets.only(bottom: 10, left: 10),
           child: CustomText(
             text: text,
-            color: Colors.white,
             fontSize: 15.0,
             fontWeight: FontWeight.w800,
           ),
