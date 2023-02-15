@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/Learning/corousel.dart';
-import'package:my_flutter_app/Learning/corousel.dart'';
 import 'package:my_flutter_app/home_page.dart';
 import "package:my_flutter_app/lab-08/check_page.dart";
 import 'package:my_flutter_app/matrimony_app/users.dart';
