@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/Learning/corousel.dart';
 import 'package:my_flutter_app/Learning/scroll_view_learning.dart';
 
 class LearningHomePage extends StatelessWidget {
@@ -19,6 +20,15 @@ class LearningHomePage extends StatelessWidget {
               );
             },
             child: Text("ScrollView Learning"),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Corousel()),
+              );
+            },
+            child: Text("Corousel Learning"),
           )
         ]));
   }

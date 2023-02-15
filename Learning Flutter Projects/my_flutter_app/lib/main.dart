@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: HomePage(),
-      // home: HomePage(),
-      home: Corousel(),
+      home: HomePage(),
+      // home: Corousel(),
     );
   }
 }

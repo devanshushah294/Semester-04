@@ -63,7 +63,9 @@ class _CorouselState extends State<Corousel> {
               },
               slideTransform: DefaultTransform(),
               slideIndicator: CircularSlideIndicator(
-                padding: EdgeInsets.only(bottom: 32),
+                alignment: Alignment.bottomLeft,
+                indicatorBackgroundColor: Colors.white,
+                padding: EdgeInsets.only(bottom: 32,left: 10),
                 indicatorBorderColor: Colors.black,
               ),
               itemCount: colors.length,
