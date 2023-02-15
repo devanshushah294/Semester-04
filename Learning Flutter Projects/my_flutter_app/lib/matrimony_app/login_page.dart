@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/matrimony_app/users.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -80,7 +81,10 @@ class LoginPage extends StatelessWidget {
                         child: TextButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              print("Validated successfully");
+                              Navigator.of(context)
+                                ..pop()
+                                ..pushReplacement(MaterialPageRoute(
+                                    builder: (context) => Users()));
                             } else {
                               print("Enter the correct values");
                             }

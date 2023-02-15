@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text("Lab - 07"),
+                child: Card(child: Text("Lab - 07")),
               ),
               InkWell(
                 onTap: () {
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text("Lab - 08"),
+                child: Card(child: Text("Lab - 08")),
               ),
               InkWell(
                 onTap: () {
@@ -50,12 +50,12 @@ class HomePage extends StatelessWidget {
                     ),
                   );
                 },
-                child: Text("Learning"),
+                child: Card(child: Text("Learning")),
               ),
               InkWell(
-                child: Text("Matromany app"),
+                child: Card(child: Text("Matromany app")),
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => PreLoginPage(),

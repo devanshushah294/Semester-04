@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 import 'package:my_flutter_app/matrimony_app/user_details_page.dart';
 
 class Users extends StatefulWidget {
@@ -28,12 +27,11 @@ class _UsersState extends State<Users> {
         Card(
           child: InkWell(
             onTap: () {
+              Map user = lst[i];
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => UserDetailsPage(
-                    id: lst[i]["id"].toString(),
-                  ),
+                  builder: (context) => UserDetailsPage(map: user),
                 ),
               );
             },
@@ -63,20 +61,26 @@ class _UsersState extends State<Users> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Users"),
+        backgroundColor: Colors.deepOrangeAccent,
       ),
-      body: FutureBuilder(
-        future: callUsersApi(),
-        builder: (context, snapshot) {
-          // print(snapshot.data.toString());
-          if (snapshot.data != null && snapshot.hasData) {
-            List<dynamic> lst = jsonDecode(snapshot.data.toString());
-            return ListView(
-              children: getListTiles(lst),
-            );
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
+      body: RefreshIndicator(
+        onRefresh: () async {
+          setState(() {});
         },
+        child: FutureBuilder(
+          future: callUsersApi(),
+          builder: (context, snapshot) {
+            // print(snapshot.data.toString());
+            if (snapshot.data != null && snapshot.hasData) {
+              List<dynamic> lst = jsonDecode(snapshot.data.toString());
+              return ListView(
+                children: getListTiles(lst),
+              );
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          },
+        ),
       ),
     );
   }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/demo.dart';
 import 'package:my_flutter_app/home_page.dart';
 import "package:my_flutter_app/lab-08/check_page.dart";
 import 'package:my_flutter_app/matrimony_app/users.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -19,7 +21,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: HomePage(),
-      home: Users(),
+      // home: HomePage(),
+      home: Demo(
+        title: "hello",
+      ),
     );
   }
 }
