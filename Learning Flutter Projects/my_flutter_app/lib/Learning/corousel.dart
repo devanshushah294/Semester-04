@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
 
-class Demo extends StatefulWidget {
-  final String title;
-
-  Demo({Key? key, required this.title}) : super(key: key);
+class Corousel extends StatefulWidget {
+  Corousel({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  _DemoState createState() => _DemoState();
+  _CorouselState createState() => _CorouselState();
 }
 
-class _DemoState extends State<Demo> {
+class _CorouselState extends State<Corousel> {
   final List<Color> colors = [
     Colors.red,
     Colors.orange,
@@ -46,7 +46,7 @@ class _DemoState extends State<Demo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Corrousel Learning"),
       ),
       body: ListView(
         children: <Widget>[
@@ -56,7 +56,10 @@ class _DemoState extends State<Demo> {
               unlimitedMode: true,
               controller: _sliderController,
               slideBuilder: (index) {
-                return Image.network(images[index],fit: BoxFit.cover,);
+                return Image.network(
+                  images[index],
+                  fit: BoxFit.cover,
+                );
               },
               slideTransform: DefaultTransform(),
               slideIndicator: CircularSlideIndicator(
