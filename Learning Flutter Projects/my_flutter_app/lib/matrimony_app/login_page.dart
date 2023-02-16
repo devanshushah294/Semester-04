@@ -32,22 +32,23 @@ class LoginPage extends StatelessWidget {
                     child: Image.asset("assets/images/logo.png"),
                   ),
                   TextFormField(
-                      controller: nameController,
-                      decoration: InputDecoration(
-                          labelText: "Name : ",
-                          fillColor: Colors.grey,
-                          focusColor: Colors.grey),
-                      validator: (value) {
-                        RegExp regex = RegExp("[a-zA-Z]"
-                            // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
-                            );
-                        var passNonNullValue = value ?? "";
-                        if (passNonNullValue.isEmpty) {
-                          return ("Password is required");
-                        } else if (!regex.hasMatch(passNonNullValue)) {
-                          return ("Password should contain upper,lower,digit and Special character ");
-                        }
-                      }),
+                    controller: nameController,
+                    decoration: InputDecoration(
+                        labelText: "Name : ",
+                        fillColor: Colors.grey,
+                        focusColor: Colors.grey),
+                    validator: (value) {
+                      RegExp regex = RegExp("[a-zA-Z]"
+                          // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
+                          );
+                      var passNonNullValue = value ?? "";
+                      if (passNonNullValue.isEmpty) {
+                        return ("Password is required");
+                      } else if (!regex.hasMatch(passNonNullValue)) {
+                        return ("Password should contain upper,lower,digit and Special character ");
+                      }
+                    },
+                  ),
                   TextFormField(
                     controller: passwordController,
                     decoration: InputDecoration(

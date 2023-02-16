@@ -5,6 +5,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:my_flutter_app/fonts/custom_text.dart';
+import 'package:my_flutter_app/matrimony_app/sign_up_update_page.dart';
 import 'package:my_flutter_app/matrimony_app/users.dart';
 
 class UserDetailsPage extends StatefulWidget {
@@ -237,7 +238,9 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUpAndUpdatePage(userModel:widget.map),));
+                  },
                   child: CustomText(
                     text: "Edit",
                     color: Colors.white,

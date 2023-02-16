@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/fonts/custom_text.dart';
+import 'package:my_flutter_app/matrimony_app/sign_up_update_page.dart';
 
 import 'login_page.dart';
 
@@ -11,7 +12,7 @@ class PreLoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrangeAccent,
-        title:Text("Metromony app"),
+        title: Text("Metromony app"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -88,21 +89,28 @@ class PreLoginPage extends StatelessWidget {
                 ),
               ),
               Expanded(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignUpAndUpdatePage(userModel: null),
+                      ),
+                    );
+                  },
                   child: Container(
-                color: Colors.black,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Sign Up \u2794",
+                    alignment: Alignment.center,
+                    color: Colors.black,
+                    child: Text(
+                      "Sign Up",
                       style: TextStyle(
                           fontFamily: "Roboto",
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
-                  ],
+                  ),
                 ),
-              ))
+              )
             ],
           ))
         ],
