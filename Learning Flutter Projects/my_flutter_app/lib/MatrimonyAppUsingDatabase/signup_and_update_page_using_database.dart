@@ -3,6 +3,7 @@ import 'package:gender_picker/gender_picker.dart';
 import 'package:gender_picker/source/enums.dart';
 import 'package:my_flutter_app/MatrimonyAppUsingDatabase/database.dart';
 import 'package:my_flutter_app/MatrimonyAppUsingDatabase/user_details_page_using_database.dart';
+import 'package:my_flutter_app/MatrimonyAppUsingDatabase/users_page_database.dart';
 import 'package:my_flutter_app/fonts/custom_text.dart';
 
 class SignupAndUpdatePageUsingDatabase extends StatefulWidget {
@@ -199,6 +200,10 @@ class _SignupAndUpdatePageUsingDatabaseState
                 Container(
                   margin: EdgeInsets.only(top: 150),
                   child: TextButton(
+                    child: CustomText(
+                      text: "Submit",
+                      color: Colors.white,
+                    ),
                     onPressed: () => showDialog(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
@@ -219,12 +224,13 @@ class _SignupAndUpdatePageUsingDatabaseState
                             child: const Text('Cancel'),
                           ),
                           TextButton(
+                            child: const Text('OK'),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
-                                map["UserName"] = nameController.text.toString();
+                                map["UserName"] =
+                                    nameController.text.toString();
                                 map["Image"] = imageController.text;
-                                map["BirthDate"] =
-                                    birthdateController.text;
+                                map["BirthDate"] = birthdateController.text;
                                 map["City_ID"] = cityController.text.toString();
                                 map["PhoneNumber"] =
                                     phoneNumberController.text.toString();
@@ -232,35 +238,37 @@ class _SignupAndUpdatePageUsingDatabaseState
                                 map["Job"] = jobController.text.toString();
                                 if (widget.userModel == null) {
                                   addInApi(map);
+                                  Navigator.of(context)
+                                    ..pop()
+                                    ..pop()
+                                    ..pushReplacement(MaterialPageRoute(
+                                        builder: (context) =>
+                                            UsersPageUsingDatabase()));
                                 } else {
                                   print(id.runtimeType);
                                   updateInDatabase(
                                     map,
                                     id: id,
                                   );
+                                  Navigator.of(context)
+                                    ..pop()
+                                    ..pop()
+                                    ..pushReplacement(
+                                      MaterialPageRoute<void>(
+                                        builder: (BuildContext context) =>
+                                            UserDetailsPageUsingDatabase(
+                                          map: map,
+                                        ),
+                                      ),
+                                    );
                                 }
                                 // print(map);
-                                Navigator.of(context)
-                                  ..pop()
-                                  ..pop()
-                                  ..pushReplacement(
-                                    MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          UserDetailsPageUsingDatabase(
-                                        map: map,
-                                      ),
-                                    ),
-                                  );
+
                               }
                             },
-                            child: const Text('OK'),
                           ),
                         ],
                       ),
-                    ),
-                    child: CustomText(
-                      text: "Submit",
-                      color: Colors.white,
                     ),
                     style: TextButton.styleFrom(
                       shape: new RoundedRectangleBorder(
@@ -286,6 +294,6 @@ class _SignupAndUpdatePageUsingDatabaseState
   }
 
   void addInApi(Map<String, String> map) {
-
+    MyDatabase().addInUsers(map);
   }
 }

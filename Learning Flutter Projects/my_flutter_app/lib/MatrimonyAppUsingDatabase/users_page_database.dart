@@ -5,6 +5,12 @@ import 'package:my_flutter_app/MatrimonyAppUsingDatabase/user_details_page_using
 class UsersPageUsingDatabase extends StatefulWidget {
   const UsersPageUsingDatabase({Key? key}) : super(key: key);
 
+  void setStat() {
+    print("hello executes");
+    createState().setState(() {});
+    print("\nExecuted");
+  }
+
   @override
   State<UsersPageUsingDatabase> createState() => _UsersPageUsingDatabaseState();
 }
@@ -15,6 +21,7 @@ class _UsersPageUsingDatabaseState extends State<UsersPageUsingDatabase> {
     super.initState();
     MyDatabase().copyPasteAssetFileToRoot().then((value) {});
   }
+
   @override
   Widget build(BuildContext context) {
     print("-----\n hello hello \n ----");
@@ -22,12 +29,15 @@ class _UsersPageUsingDatabaseState extends State<UsersPageUsingDatabase> {
       appBar: AppBar(
         title: Text("Users using database"),
       ),
-      body: Container(
+      body: RefreshIndicator(
+        onRefresh: () async {
+          setState(() {});
+        },
         child: FutureBuilder(
           future: MyDatabase().getDataFromUsersTable(),
           builder: (context, snapshot) {
             List<Map<String, Object?>> lst = snapshot.data;
-            return Column(
+            return ListView(
               children: getListTiles(lst),
             );
           },

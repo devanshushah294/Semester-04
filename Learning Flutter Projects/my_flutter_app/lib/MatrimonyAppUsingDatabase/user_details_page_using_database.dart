@@ -25,6 +25,16 @@ class _UserDetailsPageState extends State<UserDetailsPageUsingDatabase> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          onTap: () {
+            Navigator.of(context)
+              ..pop()
+              ..setState(() {});
+
+            ;
+          },
+          child: Icon(Icons.arrow_back),
+        ),
         backgroundColor: Colors.deepOrangeAccent,
         title: Text("User page using database"),
       ),
@@ -203,19 +213,18 @@ class _UserDetailsPageState extends State<UserDetailsPageUsingDatabase> {
                           child: const Text('Cancel'),
                         ),
                         TextButton(
+                          child: const Text('OK'),
                           onPressed: () {
                             deleteById(widget.map["User_ID"]);
+                            // UsersPageUsingDatabase().setStat();
                             Navigator.of(context)
                               ..pop()
                               ..pop()
-                              ..pushReplacement(
-                                MaterialPageRoute<void>(
+                              ..pushReplacement(MaterialPageRoute<void>(
                                   builder: (BuildContext context) =>
-                                      UsersPageUsingDatabase(),
-                                )..setState(() { }),
-                              );
+                                      UsersPageUsingDatabase())
+                                ..setState(() {}));
                           },
-                          child: const Text('OK'),
                         ),
                       ],
                     ),
@@ -235,8 +244,8 @@ class _UserDetailsPageState extends State<UserDetailsPageUsingDatabase> {
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => SignupAndUpdatePageUsingDatabase(
-                          userModel: widget.map,
-                          ),
+                        userModel: widget.map,
+                      ),
                     ));
                   },
                   child: CustomText(
