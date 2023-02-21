@@ -39,7 +39,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
               height: 300,
               width: 400,
               // decoration: BoxDecoration(
-              //   border: Border.all(
+              //   border: Border.all
               color: Colors.deepOrangeAccent,
               //   ),
               // ),

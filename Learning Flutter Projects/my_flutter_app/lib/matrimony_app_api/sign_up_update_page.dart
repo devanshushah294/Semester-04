@@ -5,6 +5,7 @@ import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_flutter_app/matrimony_app_api/user_details_page.dart';
+import 'package:my_flutter_app/matrimony_app_api/users.dart';
 
 import '../fonts/custom_text.dart';
 
@@ -226,25 +227,25 @@ class _SignUpAndUpdatePageState extends State<SignUpAndUpdatePage> {
                                 map["job"] = jobController.text.toString();
                                 if (widget.userModel == null) {
                                   addInApi(map);
+                                  Navigator.of(context)..pop()..pop()..pushReplacement(MaterialPageRoute(builder: (context)=>Users()));
                                 } else {
                                   print(id);
                                   updateInApi(
                                     map,
                                     id: id.toString(),
                                   );
-                                }
-                                // print(map);
-                                Navigator.of(context)
-                                  ..pop()
-                                  ..pop()
-                                  ..pushReplacement(
-                                    MaterialPageRoute<void>(
-                                      builder: (BuildContext context) =>
-                                          UserDetailsPage(
-                                        map: map,
+                                  Navigator.of(context)
+                                    ..pop()
+                                    ..pop()
+                                    ..pushReplacement(
+                                      MaterialPageRoute<void>(
+                                        builder: (BuildContext context) =>
+                                            UserDetailsPage(
+                                              map: map,
+                                            ),
                                       ),
-                                    ),
-                                  );
+                                    );
+                                }
                               }
                             },
                             child: const Text('OK'),
