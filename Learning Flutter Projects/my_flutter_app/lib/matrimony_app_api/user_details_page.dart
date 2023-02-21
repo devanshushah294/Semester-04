@@ -5,8 +5,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:my_flutter_app/fonts/custom_text.dart';
-import 'package:my_flutter_app/matrimony_app/sign_up_update_page.dart';
-import 'package:my_flutter_app/matrimony_app/users.dart';
+import 'package:my_flutter_app/matrimony_app_api/sign_up_update_page.dart';
+import 'package:my_flutter_app/matrimony_app_api/users.dart';
 
 class UserDetailsPage extends StatefulWidget {
   UserDetailsPage({Key? key, @required this.map}) : super(key: key);
@@ -22,14 +22,7 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
     super.initState();
   }
 
-  Future<void> deleteById(id) async {
-    final http.Response res = await http.delete(
-      Uri.parse("https://630c662f53a833c53429c1c8.mockapi.io/users/" + id),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -257,6 +250,15 @@ class _UserDetailsPageState extends State<UserDetailsPage> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<void> deleteById(id) async {
+    final http.Response res = await http.delete(
+      Uri.parse("https://630c662f53a833c53429c1c8.mockapi.io/users/" + id),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
     );
   }
 }

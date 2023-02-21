@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_flutter_app/matrimony_app/users.dart';
+import 'package:my_flutter_app/MatrimonyAppUsingDatabase/users_page_database.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class LoginPageUsingDatabase extends StatelessWidget {
+  LoginPageUsingDatabase({Key? key}) : super(key: key);
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
@@ -12,7 +12,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrangeAccent,
-        title: Text("LoginPage here"),
+        title: Text("LoginPage using database"),
       ),
       body: Container(
         padding: EdgeInsets.all(10),
@@ -39,8 +39,8 @@ class LoginPage extends StatelessWidget {
                         focusColor: Colors.grey),
                     validator: (value) {
                       RegExp regex = RegExp("[a-zA-Z]"
-                          // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
-                          );
+                        // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
+                      );
                       var passNonNullValue = value ?? "";
                       if (passNonNullValue.isEmpty) {
                         return ("Password is required");
@@ -85,7 +85,7 @@ class LoginPage extends StatelessWidget {
                               Navigator.of(context)
                                 ..pop()
                                 ..pushReplacement(MaterialPageRoute(
-                                    builder: (context) => Users()));
+                                    builder: (context) => UsersPageUsingDatabase()));
                             } else {
                               print("Enter the correct values");
                             }
@@ -94,7 +94,7 @@ class LoginPage extends StatelessWidget {
                             child: Text(
                               "Submit",
                               style:
-                                  TextStyle(fontSize: 25, color: Colors.white),
+                              TextStyle(fontSize: 25, color: Colors.white),
                             ),
                           ),
                         ),

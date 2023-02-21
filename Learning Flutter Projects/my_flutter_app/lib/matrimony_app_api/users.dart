@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_flutter_app/matrimony_app/user_details_page.dart';
+import 'package:my_flutter_app/matrimony_app_api/user_details_page.dart';
 
 class Users extends StatefulWidget {
   const Users({Key? key}) : super(key: key);
@@ -12,12 +12,7 @@ class Users extends StatefulWidget {
 }
 
 class _UsersState extends State<Users> {
-  Future<dynamic> callUsersApi() async {
-    http.Response res = await http.get(
-      Uri.parse("https://630c662f53a833c53429c1c8.mockapi.io/users"),
-    );
-    return res.body;
-  }
+
 
   List<Widget> getListTiles(lst) {
     List<Widget> list = [];
@@ -85,5 +80,11 @@ class _UsersState extends State<Users> {
         ),
       ),
     );
+  }
+  Future<dynamic> callUsersApi() async {
+    http.Response res = await http.get(
+      Uri.parse("https://630c662f53a833c53429c1c8.mockapi.io/users"),
+    );
+    return res.body;
   }
 }

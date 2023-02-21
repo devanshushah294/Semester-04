@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_flutter_app/matrimony_app/user_details_page.dart';
-import 'package:my_flutter_app/matrimony_app/users.dart';
+import 'package:my_flutter_app/matrimony_app_api/user_details_page.dart';
 
 import '../fonts/custom_text.dart';
 
@@ -59,16 +58,7 @@ class _SignUpAndUpdatePageState extends State<SignUpAndUpdatePage> {
   TextEditingController phoneNumberController = TextEditingController();
   String genderController = "Male";
 
-  Future<void> addInApi(Map<String, String> map) async {
-    print(map);
-    http.Response res = await http.post(
-      Uri.parse("https://630c662f53a833c53429c1c8.mockapi.io/users"),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(map),
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -282,7 +272,16 @@ class _SignUpAndUpdatePageState extends State<SignUpAndUpdatePage> {
       ),
     );
   }
-
+  Future<void> addInApi(Map<String, String> map) async {
+    print(map);
+    http.Response res = await http.post(
+      Uri.parse("https://630c662f53a833c53429c1c8.mockapi.io/users"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(map),
+    );
+  }
   Future<void> updateInApi(Map<String, String> map, {id}) async {
     print(id.toString());
     map["id"] = id.toString();

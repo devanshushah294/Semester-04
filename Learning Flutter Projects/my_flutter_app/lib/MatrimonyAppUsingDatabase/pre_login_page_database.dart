@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/MatrimonyAppUsingDatabase/signup_and_update_page_using_database.dart';
+import 'package:my_flutter_app/MatrimonyAppUsingDatabase/login_page_using_database.dart';
 import 'package:my_flutter_app/fonts/custom_text.dart';
-import 'package:my_flutter_app/matrimony_app/sign_up_update_page.dart';
 
-import 'login_page.dart';
-
-class PreLoginPage extends StatelessWidget {
-  const PreLoginPage({Key? key}) : super(key: key);
+class PreLoginPageDatabase extends StatelessWidget {
+  const PreLoginPageDatabase({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrangeAccent,
-        title: Text("Metromony app"),
+        title: Text("Metromony app using database"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -69,7 +68,7 @@ class PreLoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                        builder: (context) => LoginPageUsingDatabase(),
                       ),
                     );
                   },
@@ -94,7 +93,9 @@ class PreLoginPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpAndUpdatePage(userModel: null),
+                        builder: (context) => SignupAndUpdatePageUsingDatabase(
+                          userModel: null,
+                        ),
                       ),
                     );
                   },

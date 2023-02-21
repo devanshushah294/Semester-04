@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_app/MatrimonyAppUsingDatabase/pre_login_page_database.dart';
+import 'package:my_flutter_app/MatrimonyAppUsingDatabase/users_page_database.dart';
 import 'package:my_flutter_app/home_page.dart';
 import "package:my_flutter_app/lab-08/check_page.dart";
-import 'package:my_flutter_app/matrimony_app/pre_login_page.dart';
-import 'package:my_flutter_app/matrimony_app/users.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,9 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      // home: PreLoginPageDatabase(),
       // home: PreLoginPage(),
       // home: Corousel(),
+      home: HomePage(),
     );
   }
 }
