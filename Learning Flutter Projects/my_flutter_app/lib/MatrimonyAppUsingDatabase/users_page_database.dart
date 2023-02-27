@@ -36,10 +36,16 @@ class _UsersPageUsingDatabaseState extends State<UsersPageUsingDatabase> {
         child: FutureBuilder(
           future: MyDatabase().getDataFromUsersTable(),
           builder: (context, snapshot) {
-            List<Map<String, Object?>> lst = snapshot.data;
-            return ListView(
-              children: getListTiles(lst),
-            );
+            if (snapshot.data != null && snapshot.hasData) {
+              List<Map<String, Object?>> lst = snapshot.data;
+              return ListView(
+                children: getListTiles(lst),
+              );
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
           },
         ),
       ),
@@ -69,12 +75,9 @@ class _UsersPageUsingDatabaseState extends State<UsersPageUsingDatabase> {
                   borderRadius: BorderRadius.circular(100),
                 ),
                 clipBehavior: Clip.antiAlias,
-                child: Image.network(
-                  lst[i]["Image"] ??
-                      (lst[i]["Gender"] == "Male"
-                          ? "https://img.freepik.com/free-icon/male_318-41774.jpg"
-                          : "https://www.shutterstock.com/image-vector/women-facility-service-vector-icon-260nw-1209644506.jpg"),
-                ),
+                child: (lst[i]["Gender"] == "Male")
+                    ? Image.asset("assets/images/male.png")
+                    : Image.asset("assets/images/female.png"),
               ),
               subtitle: Text(lst[i]["City_ID"].toString()),
               trailing: Icon(Icons.arrow_forward_ios),
