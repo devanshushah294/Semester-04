@@ -1,0 +1,20 @@
+matplotlib 7 marks
+custom Exeptions
+modules 3 marks
+unit 4 - 10 marks
+1 program object oriented 
+time walo program
+14/30 programs
+
+theory 
+what is a self parameter 
+difference betn class level attribute and 
+random module
+super
+self
+module all functions
+class 
+abstract class
+diff betn instance attribute and class attribute (confirm question)
+types of methods
+matplotlib(theory) - label annoations and legends, line style, grid and axis

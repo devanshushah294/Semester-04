@@ -48,12 +48,17 @@ class MyDatabase {
     return list;
   }
 
-  void deleteUserById(id) async {
+  Future<void> deleteUserById(id) async {
     Database db = await initDatabase();
     print("id :: ${id}");
     print("000${id.runtimeType}000");
 
     db.rawQuery("Delete from Tbl_Users where User_ID = ${id}");
+  }
+  Future<List> getAllCities() async{
+    Database db = await initDatabase();
+    List list = [];
+    return db.rawQuery("Select * from MST_City");
   }
   Future<void> addInUsers(Map<String, Object> map) async {
     Database db = await initDatabase();

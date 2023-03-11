@@ -19,7 +19,9 @@ class _UsersPageUsingDatabaseState extends State<UsersPageUsingDatabase> {
   @override
   void initState() {
     super.initState();
-    MyDatabase().copyPasteAssetFileToRoot().then((value) {});
+    MyDatabase().copyPasteAssetFileToRoot().then((value) {
+      print("Database connected succesfully");
+    });
   }
 
   @override

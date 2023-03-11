@@ -39,8 +39,8 @@ class LoginPageUsingDatabase extends StatelessWidget {
                         focusColor: Colors.grey),
                     validator: (value) {
                       RegExp regex = RegExp("[a-zA-Z]"
-                        // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
-                      );
+                          // r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*~]).{8,}$',
+                          );
                       var passNonNullValue = value ?? "";
                       if (passNonNullValue.isEmpty) {
                         return ("Password is required");
@@ -85,7 +85,8 @@ class LoginPageUsingDatabase extends StatelessWidget {
                               Navigator.of(context)
                                 ..pop()
                                 ..pushReplacement(MaterialPageRoute(
-                                    builder: (context) => UsersPageUsingDatabase()));
+                                    builder: (context) =>
+                                        UsersPageUsingDatabase()));
                             } else {
                               print("Enter the correct values");
                             }
@@ -94,7 +95,7 @@ class LoginPageUsingDatabase extends StatelessWidget {
                             child: Text(
                               "Submit",
                               style:
-                              TextStyle(fontSize: 25, color: Colors.white),
+                                  TextStyle(fontSize: 25, color: Colors.white),
                             ),
                           ),
                         ),

@@ -21,6 +21,7 @@ class _SignupAndUpdatePageUsingDatabaseState
   var id;
 
   void initState() {
+    getDropdownCities();
     if (widget.userModel != null) {
       id = widget.userModel["User_ID"].toString();
     }
@@ -127,6 +128,10 @@ class _SignupAndUpdatePageUsingDatabaseState
                     },
                   ),
                 ),
+                // DropdownButton(
+                //   items: getDropdownCities(),
+                //   onChanged: (value) {},
+                // ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 5),
                   child: TextFormField(
@@ -263,7 +268,6 @@ class _SignupAndUpdatePageUsingDatabaseState
                                     );
                                 }
                                 // print(map);
-
                               }
                             },
                           ),
@@ -295,5 +299,14 @@ class _SignupAndUpdatePageUsingDatabaseState
 
   void addInApi(Map<String, String> map) {
     MyDatabase().addInUsers(map);
+  }
+
+  Future<List> getDropdownCities() async {
+    List list = [];
+    List cities = await MyDatabase().getAllCities();
+    for (int i = 0; i < cities.length; i++) {
+      list.add(DropdownMenuItem(child: Text(cities[i]["CityName"])));
+    }
+    return list;
   }
 }

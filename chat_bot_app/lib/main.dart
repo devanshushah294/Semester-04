@@ -1,8 +1,6 @@
+import 'package:chat_bot_app/messages.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:flutter/material.dart';
-
-import 'messages.dart';
-// import 'package:flutter_bot/Messages.dart';
 
 void main() => runApp(MyApp());
 
