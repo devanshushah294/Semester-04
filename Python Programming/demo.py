@@ -1,6 +1,21 @@
 import matplotlib.pyplot as plt
-# x = [10, 20, 30, 40]
-x = [i for i in range(10, 50, 10)]
-y = [1, 2, 3, 4]
-plt.pie(x)
+import random
+values = [i for i in range(1, 101, 10)]
+random.shuffle(values)
+ax = plt.axes()
+ax.set_xlim([0, 10])
+ax.set_ylim([0, 100])
+ax.set_xticks([i for i in range(0, 11)])
+ax.set_yticks([i for i in range(0, 101, 10)])
+ax.grid()
+plt.plot(range(1, 11), values)
+plt.show()
+
+plt.pie(values)
+plt.show()
+
+plt.bar(range(1, 11), values)
+plt.show()
+
+plt.barh(range(1, 11), values)
 plt.show()
