@@ -22,7 +22,6 @@ class _AddEditPageDBState extends State<AddEditPageDB> {
       _nc.text = widget.data!["Name"].toString();
       _sc.text = widget.data!["Salary"].toString();
     }
-    // print(widget.data.toString());
   }
 
   TextEditingController _nc = TextEditingController();
@@ -92,8 +91,7 @@ class _AddEditPageDBState extends State<AddEditPageDB> {
                 map["CityID"] = _ddSelected.cityId!;
                 if (widget.data != null) {
                   map["id"] = widget.data!["id"];
-                  MyDatabase().deleteById(int.parse(map["id"].toString()));
-                  MyDatabase().add(map: map);
+                  MyDatabase().editById(map, map["id"]);
                 } else {
                   MyDatabase().add(map: map);
                 }

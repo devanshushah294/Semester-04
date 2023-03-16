@@ -19,8 +19,7 @@ class ApiFunctions {
   }
 
   Future<void> editById(map) async {
-    http.Response res = await http
-        .put(Uri.parse("$apiUrl/${map["id"]}"), body: map);
+    http.Response res = await http.put(Uri.parse("$apiUrl/${map["id"]}"), body: map);
   }
 
 }

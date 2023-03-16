@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:employee_project/database/city_model.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -36,19 +36,26 @@ class MyDatabase {
 
   Future<dynamic> getData() async {
     Database db = await initDatabase();
-    dynamic list = await db.rawQuery("Select * from Employees inner join City on Employees.CityId = City.CityID");
+    dynamic list = await db.rawQuery(
+        "Select * from Employees inner join City on Employees.CityId = City.CityID");
     getUsers();
     return list;
   }
 
   Future<void> deleteById(int id) async {
     Database db = await initDatabase();
-    db.rawQuery("Delete from Employees where id = ${id}");
+    db.rawQuery("Delete from Employees where id = $id");
+    // db.delete("Employees",where:"id = ?",whereArgs: [id]);
   }
 
   Future<void> add({required Map<String, Object?> map}) async {
     Database db = await initDatabase();
     db.insert("Employees", map);
+  }
+
+  Future<void> editById(map, id) async {
+    Database db = await initDatabase();
+    dynamic res = db.update("Employees",map, where: "id = ?", whereArgs: [id]);
   }
 
   Future<List<CityModel>> getCityList() async {
@@ -62,7 +69,6 @@ class MyDatabase {
       model.cityName = res[i]["CityName"].toString();
       resList.add(model);
     }
-    print(resList.toString());
     return resList;
   }
 }

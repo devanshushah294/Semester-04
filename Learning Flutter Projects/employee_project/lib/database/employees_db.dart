@@ -17,7 +17,6 @@ class _EmployeesDBState extends State<EmployeesDB> {
     MyDatabase().copyPasteAssetFileToRoot().then((value) {
       print("Database initialised successfully");
     });
-    MyDatabase().getData();
   }
 
   @override
@@ -44,7 +43,7 @@ class _EmployeesDBState extends State<EmployeesDB> {
               children: getTiles(list: snapshot.data),
             );
           } else {
-            return CircularProgressIndicator();
+            return const CircularProgressIndicator();
           }
         },
         future: MyDatabase().getData(),
