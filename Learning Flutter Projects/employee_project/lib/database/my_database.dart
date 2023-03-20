@@ -44,18 +44,18 @@ class MyDatabase {
 
   Future<void> deleteById(int id) async {
     Database db = await initDatabase();
-    db.rawQuery("Delete from Employees where id = $id");
+    dynamic res = await db.rawQuery("Delete from Employees where id = $id");
     // db.delete("Employees",where:"id = ?",whereArgs: [id]);
   }
 
   Future<void> add({required Map<String, Object?> map}) async {
     Database db = await initDatabase();
-    db.insert("Employees", map);
+    dynamic res = await db.insert("Employees", map);
   }
 
   Future<void> editById(map, id) async {
     Database db = await initDatabase();
-    dynamic res = db.update("Employees",map, where: "id = ?", whereArgs: [id]);
+    dynamic res = await db.update("Employees",map, where: "id = ?", whereArgs: [id]);
   }
 
   Future<List<CityModel>> getCityList() async {

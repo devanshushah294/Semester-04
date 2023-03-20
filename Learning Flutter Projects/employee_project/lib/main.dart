@@ -1,5 +1,6 @@
 import 'package:employee_project/api/employees.dart';
 import 'package:employee_project/database/employees_db.dart';
+import 'package:employee_project/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Employees(),
+      home: HomePage(),
     );
   }
 }

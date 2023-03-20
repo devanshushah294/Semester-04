@@ -17,6 +17,7 @@ class _EmployeesDBState extends State<EmployeesDB> {
     MyDatabase().copyPasteAssetFileToRoot().then((value) {
       print("Database initialised successfully");
     });
+    print(MyDatabase().getData().toString());
   }
 
   @override
