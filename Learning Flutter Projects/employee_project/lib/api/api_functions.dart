@@ -6,7 +6,7 @@ class ApiFunctions {
 
   Future<List<dynamic>> getAll() async {
     http.Response res = await http.get(Uri.parse(apiUrl));
-    dynamic list = jsonDecode(res.body.toString());
+    List<dynamic> list = jsonDecode(res.body.toString());
     return list;
   }
 

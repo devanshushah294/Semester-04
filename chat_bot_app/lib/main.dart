@@ -53,9 +53,9 @@ class _HomeState extends State<Home> {
                 children: [
                   Expanded(
                       child: TextField(
-                        controller: _controller,
-                        style: TextStyle(color: Colors.white),
-                      )),
+                    controller: _controller,
+                    style: TextStyle(color: Colors.white),
+                  )),
                   IconButton(
                       onPressed: () {
                         sendMessage(_controller.text);
@@ -77,8 +77,13 @@ class _HomeState extends State<Home> {
     } else {
       setState(() {
         addMessage(Message(text: DialogText(text: [text])), true);
+        // print(text);
       });
-
+      // print(text);
+      // setState(() {
+      //   addMessage(Message(text: DialogText(text: [text])));
+      // });
+      // aiiya logic lakhi ne pachi aiiya thi kaik evu pass karo ke ee response ma aapde je joy che eej mokle
       DetectIntentResponse response = await dialogFlowtter.detectIntent(
           queryInput: QueryInput(text: TextInput(text: text)));
       if (response.message == null) return;

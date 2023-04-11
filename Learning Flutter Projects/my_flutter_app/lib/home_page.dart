@@ -1,8 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/Learning/learning_homepage.dart';
 import 'package:my_flutter_app/MatrimonyAppUsingDatabase/pre_login_page_database.dart';
 import 'package:my_flutter_app/lab-07/lab_07_home_page.dart';
 import 'package:my_flutter_app/lab-08/lab_08_home_page.dart';
+import 'package:my_flutter_app/taking_pictures.dart';
 
 import 'matrimony_app_api/pre_login_page.dart';
 
@@ -74,7 +76,25 @@ class HomePage extends StatelessWidget {
                     ),
                   );
                 },
-              )
+              ),
+              FutureBuilder(
+                  future: availableCameras(),
+                  builder: (context, snapshot) {
+                    return InkWell(
+                      child: Text("Camera"),
+                      onTap: () {
+                        if (snapshot.hasData) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => TakePictureScreen(
+                                camera: snapshot.data!.first,
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                    );
+                  })
             ],
           ),
         ),

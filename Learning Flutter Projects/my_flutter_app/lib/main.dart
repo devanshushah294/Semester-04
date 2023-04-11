@@ -1,10 +1,12 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:my_flutter_app/MatrimonyAppUsingDatabase/pre_login_page_database.dart';
 import 'package:my_flutter_app/MatrimonyAppUsingDatabase/users_page_database.dart';
 import 'package:my_flutter_app/home_page.dart';
 import "package:my_flutter_app/lab-08/check_page.dart";
 
-void main() {
+Future<void> main() async {
+  final cameras = await availableCameras();
   runApp(MyApp());
 }
 

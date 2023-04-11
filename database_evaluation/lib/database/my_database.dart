@@ -41,11 +41,13 @@ class MyDatabase {
 
   Future<void> add(map) async {
     Database db = await initDatabase();
+    print(map.toString());
     dynamic res = await db.insert("Students", map);
   }
 
   Future<void> edit(map, id) async {
     Database db = await initDatabase();
+    print(map.toString());
     dynamic res =
         await db.update("Students", map, where: "id = ?", whereArgs: [id]);
   }

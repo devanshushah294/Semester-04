@@ -1,3 +1,4 @@
+import 'package:database_evaluation/database/add_ediit_page.dart';
 import 'package:database_evaluation/database/my_database.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,16 @@ class _StudentsState extends State<Students> {
         children: [
           Text("Employes"),
           InkWell(
-            onTap: () {Navigator.po},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddEditPage(
+                    data: null,
+                  ),
+                ),
+              );
+            },
             child: Icon(Icons.add),
           )
         ],
@@ -60,7 +70,14 @@ class _StudentsState extends State<Students> {
                 children: [
                   InkWell(
                     child: Icon(Icons.edit),
-                    onTap: () {},
+                    onTap: () {Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AddEditPage(
+                          data: list[i],
+                        ),
+                      ),
+                    );},
                   ),
                   InkWell(
                     child: Icon(Icons.delete),

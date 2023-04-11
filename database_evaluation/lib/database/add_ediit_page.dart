@@ -19,42 +19,43 @@ class _AddEditPageState extends State<AddEditPage> {
     super.initState();
     if (widget.data != null) {
       _nc.text = widget.data["Name"];
-      _sc.text = widget.data["sem"];
+      _sc.text = widget.data["sem"].toString();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          TextFormField(
-            controller: _nc,
-            decoration: InputDecoration(labelText: "Name"),
-          ),
-          TextFormField(
-            controller: _sc,
-            decoration: InputDecoration(labelText: "Sem"),
-          ),
-          TextButton(
-              onPressed: () {
-                Map map = {};
-                map["Name"] = _nc.text;
-                map["Sem"] = int.parse(_sc.text.toString());
-                if (widget.data != null) {
-                  MyDatabase().edit(map, widget.data["id"]);
-                }
-                else {
-                  MyDatabase().add(map);
-                }
-                MyDatabase().edit(map, widget.data["id"]);
-                Navigator.of(context)
-                  ..pop
-                  ..pushReplacement(
-                    MaterialPageRoute(builder: (context) => Students(),),);
-              },
-              child: Text("Submit"))
-        ],
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          children: [
+            TextFormField(
+              controller: _nc,
+              decoration: InputDecoration(labelText: "Name"),
+            ),
+            TextFormField(
+              controller: _sc,
+              decoration: InputDecoration(labelText: "Sem"),
+            ),
+            TextButton(
+                onPressed: () {
+                  Map<String,Object> map = {};
+                  map["Name"] = _nc.text;
+                  map["Sem"] = int.parse(_sc.text.toString());
+                  if (widget.data != null) {
+                    MyDatabase().edit(map, widget.data["id"]);
+                  }
+                  else {
+                    MyDatabase().add(map);
+                  }
+                  Navigator.of(context)
+                    ..pop()
+                    ..pushReplacement(
+                      MaterialPageRoute(builder: (context) => Students(),),);
+                },
+                child: Text("Submit"))
+          ],
+        ),
       ),
     );
   }
