@@ -6,7 +6,7 @@ import 'package:my_flutter_app/home_page.dart';
 import "package:my_flutter_app/lab-08/check_page.dart";
 
 Future<void> main() async {
-  final cameras = await availableCameras();
+  // final cameras = await availableCameras();
   runApp(MyApp());
 }
 
